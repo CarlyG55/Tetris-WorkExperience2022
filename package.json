@@ -1,0 +1,21 @@
+{
+  "name": "tetris",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./backend/src/main.js",
+  "scripts": {
+    "start": "node ./backend/src/main.js",
+    "test": "ava",
+    "watch": "nodemon ./backend/src/main.js",
+    "clean": "bash -c 'rm -rf ./node_modules' && npm install"
+  },
+  "author": "Softwire Work Experience",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "ava": "^3.13.0",
+    "nodemon": "^2.0.6"
+  }
+}

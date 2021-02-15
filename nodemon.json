@@ -1,0 +1,5 @@
+{
+    "ignore": ["*test/*"],
+    "watch": ["."],
+    "ext": "js,html,css"
+  }

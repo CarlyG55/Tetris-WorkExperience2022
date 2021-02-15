@@ -1,0 +1,27 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+
+    steps:
+      - name: Install git 
+        run: sudo apt-get install -y git
+      
+      - name: Clone main branch from repo
+        run: git clone --single-branch https://github.com/$GITHUB_REPOSITORY
+
+      - name: Install heroku cli
+        run: sudo snap install --classic heroku
+
+      - name: Deploy to heroku
+        run: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/softwire-tetris.git HEAD:main
+        working-directory: ./Tetris
