@@ -9,6 +9,7 @@ A Tetris game created by Softwire's February 2022 cohort of work experience stud
 3. [Technical Overview](#technical-overview)
 4. [Running Locally](#running-locally)
 5. [How to Contribute Code](#how-to-contribute-code)
+6. [Running Tetris After the Work Experience Week](#running-tetris-after-the-work-experience-week)
 
 ## Work Experience Schedule
 
@@ -157,3 +158,7 @@ Once you are happy with your code, you can open GitHub in a browser and do the f
 - I will then review your changes and either make some comments or approve it:
   - If I make comments, you can make the changes on your branch locally and `git push` to update the code in GitHub
   - If I approve it, we can merge it into `main`. Wahey!
+
+## Running Tetris After the Work Experience Week
+
+To be updated after the work experience week.
