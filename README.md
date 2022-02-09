@@ -102,7 +102,7 @@ To run and access the website locally, you can do the following:
   - Dependencies are external pieces of software that our code relies on
   - These are defined in `package.json`, and can be installed with the command `npm install`
 - Run the app locally
-  - This command has been set up in `package.json`
+  - This command has already been set up for you (in `package.json`)
   - You can run the app with `npm start`
 - Visit the website
   - After you have run `npm start` you should see `"App listening at http://localhost:3000"`
@@ -156,4 +156,4 @@ Once you are happy with your code, you can open GitHub in a browser and do the f
 - Add a sensible title and description of your changes, then click "Create pull request"
 - I will then review your changes and either make some comments or approve it:
   - If I make comments, you can make the changes on your branch locally and `git push` to update the code in GitHub
-  - If I approve it, we can merge it into main. Wahey!
+  - If I approve it, we can merge it into `main`. Wahey!
