@@ -63,7 +63,7 @@ The schedule for the week is as follows (rough times only, these will be adaptab
 |-------------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------|
 | Trello Board            | To keep track of tasks and their statuses                                   | [here](https://trello.com/b/A96er0uq/work-experience-2022-tetris)     |
 | GitHub repo             | Central location for all of our code                                        | [here](https://github.com/cameronmccormack/Tetris-WorkExperience2022) |
-| Live site               | Where our current `main` branch code is running                             | TBC                                                                   |
+| Live site               | Where our current `main` branch code is running                             | http://tetris-feb2022.herokuapp.com                                   |
 | Cameron's email address | Any issues that can't be addressed in Teams (e.g. can't join Teams meeting) | cameron.mccormack@softwire.com                                        |
 
 ## Technical Overview
