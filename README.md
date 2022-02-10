@@ -73,12 +73,14 @@ The schedule for the week is as follows (rough times only, these will be adaptab
 
 ### Useful HTML/CSS/JavaScript Guides
 
-| What                    | Where                                                                                                 |
-|-------------------------|-------------------------------------------------------------------------------------------------------|
-| HTML Basics             | [here](https://www.w3schools.com/html/html_basic.asp)                                                 |
-| CSS Basics              | [here](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics)        |
-| CSS Flexbox Guide       | [here](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)                                       |
-| JavaScript Basics       | [here](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics) |
+| What                                                                 | Where                                                                                                  |
+|----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| HTML Basics                                                          | [here](https://www.w3schools.com/html/html_basic.asp)                                                  |
+| CSS Basics                                                           | [here](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics)         |
+| CSS Flexbox Guide                                                    | [here](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)                                        |
+| JavaScript Basics                                                    | [here](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics)  |
+| HTTP Request Methods (we'll probably only need GET and POST)         | [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)                                      |
+| HTTP Response Codes (we'll probably only need 200, 400, 404 and 500) | [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)                                       |
 
 ## Technical Overview
 
