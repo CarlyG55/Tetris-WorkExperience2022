@@ -27,15 +27,15 @@ The schedule for the week is as follows (rough times only, these will be adaptab
 | 16:00  | End of day                                                              |
 | **Tuesday**                                                                      |
 | 10:00  | Standup meeting                                                         |
-| 10:30  | Presentation: HTML/CSS/JS and requests                                  |
-| 11:30  | Code development                                                        |
+| 10:30  | Presentation: HTML/CSS/JS                                               |
+| 11:15  | Code development                                                        |
 | 12:30  | Lunch break                                                             |
 | 13:30  | Guest Presentation: A/B Testing (Charlie Cumber)                        |
 | 14:00  | Code development                                                        |
 | 16:00  | End of day                                                              |
 | **Wednesday**                                                                    |
 | 10:00  | Standup meeting                                                         |
-| 10:30  | Presentation: How is our Tetris site hosted on Heroku?                  |
+| 10:30  | Presentation: Making HTTP requests and backend development              |
 | 11:00  | Code development                                                        |
 | 12:00  | Guest Presentation: Softwire's Apprentices (Various Presenters)         |
 | 12:30  | Lunch break                                                             |
@@ -43,7 +43,8 @@ The schedule for the week is as follows (rough times only, these will be adaptab
 | 16:00  | End of day                                                              |
 | **Thursday**                                                                     |
 | 10:00  | Standup meeting                                                         |
-| 10:30  | Code development                                                        |
+| 10:30  | Presentation: DevOps: How is our Tetris site hosted on Heroku?          |
+| 10:45  | Code development                                                        |
 | 12:30  | Guest Presentation: CV and Job Application Workshop (Frances Portaluri) |
 | 13:00  | Lunch break _(note - this is 30 minutes later than other days)_         |
 | 14:00  | Code development                                                        |
@@ -61,12 +62,23 @@ The schedule for the week is as follows (rough times only, these will be adaptab
 
 ## Useful Links
 
+### Project Resources
+
 | What                    | Why                                                                         | Where                                                                 |
 |-------------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------|
 | Trello Board            | To keep track of tasks and their statuses                                   | [here](https://trello.com/b/A96er0uq/work-experience-2022-tetris)     |
 | GitHub repo             | Central location for all of our code                                        | [here](https://github.com/cameronmccormack/Tetris-WorkExperience2022) |
 | Live site               | Where our current `main` branch code is running                             | http://tetris-feb2022.herokuapp.com                                   |
 | Cameron's email address | Any issues that can't be addressed in Teams (e.g. can't join Teams meeting) | cameron.mccormack@softwire.com                                        |
+
+### Useful HTML/CSS/JavaScript Guides
+
+| What                    | Where                                                                                                 |
+|-------------------------|-------------------------------------------------------------------------------------------------------|
+| HTML Basics             | [here](https://www.w3schools.com/html/html_basic.asp)                                                 |
+| CSS Basics              | [here](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics)        |
+| CSS Flexbox Guide       | [here](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)                                       |
+| JavaScript Basics       | [here](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics) |
 
 ## Technical Overview
 
