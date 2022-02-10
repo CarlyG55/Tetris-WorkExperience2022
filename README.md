@@ -17,7 +17,7 @@ The schedule for the week is as follows (rough times only, these will be adaptab
 
 |Day/Time| Activity                                                                |
 |--------|-------------------------------------------------------------------------|
-| Monday                                                                           |
+| **Monday**                                                                       |
 | 10:00  | Introductions and setup                                                 |
 | 11:00  | Feature specification and Trello setup                                  |
 | 11:30  | Presentation: Git and GitHub                                            |
@@ -25,7 +25,7 @@ The schedule for the week is as follows (rough times only, these will be adaptab
 | 12:30  | Lunch break                                                             |
 | 13:30  | Code development                                                        |
 | 16:00  | End of day                                                              |
-| Tuesday                                                                          |
+| **Tuesday**                                                                      |
 | 10:00  | Standup meeting                                                         |
 | 10:30  | Presentation: HTML/CSS/JS and requests                                  |
 | 11:30  | Code development                                                        |
@@ -33,7 +33,7 @@ The schedule for the week is as follows (rough times only, these will be adaptab
 | 13:30  | Guest Presentation: A/B Testing (Charlie Cumber)                        |
 | 14:00  | Code development                                                        |
 | 16:00  | End of day                                                              |
-| Wednesday                                                                        |
+| **Wednesday**                                                                    |
 | 10:00  | Standup meeting                                                         |
 | 10:30  | Presentation: How is our Tetris site hosted on Heroku?                  |
 | 11:00  | Code development                                                        |
@@ -41,20 +41,22 @@ The schedule for the week is as follows (rough times only, these will be adaptab
 | 12:30  | Lunch break                                                             |
 | 13:30  | Code development                                                        |
 | 16:00  | End of day                                                              |
-| Thursday                                                                         |
+| **Thursday**                                                                     |
 | 10:00  | Standup meeting                                                         |
 | 10:30  | Code development                                                        |
 | 12:30  | Guest Presentation: CV and Job Application Workshop (Frances Portaluri) |
-| 13:00  | Lunch break                                                             |
+| 13:00  | Lunch break _(note - this is 30 minutes later than other days)_         |
 | 14:00  | Code development                                                        |
 | 16:00  | End of day                                                              |
-| Friday                                                                           |
+| **Friday**                                                                       |
 | 10:00  | Standup meeting                                                         |
 | 10:30  | Code development                                                        |
 | 12:00  | "Guest" Presentation: Mobile App Development (Cameron McCormack)        |
 | 12:30  | Lunch break                                                             |
 | 13:30  | Code development                                                        |
-| 15:00  | Retro and close-out                                                     |
+| 14:30  | Presentation preparation                                                |
+| 15:00  | Presentation                                                            |
+| 15:20  | Retro and close-out                                                     |
 | 16:00  | End of day                                                              |
 
 ## Useful Links
@@ -77,7 +79,7 @@ The frontend codebase contains all of the code to control what you see on the sc
 - CSS is used to control the formatting and layout of the HTML content
 - JavaScript is used to control the behaviour of different elements on the page
 
-When running on Heroku, the files in the frontend directory are available at `<siteurl>/<filename>`.
+When running (either on Heroku or locally), the files in the frontend directory are available at `<siteurl>/<filename>`. The `index.html` home page is also available at `<siteurl>` and all HTML files can be accessed without the `.html` extension (i.e. `tetris-feb2022.herokuapp.com/game.html` and `tetris-feb2022.herokuapp.com/game` will both route to the same page).
 
 Lots of websites use frameworks or libraries rather than "Vanilla JavaScript" to put together the site (you may have heard of React, Angular, Vue.js or many more, for example). These provide useful in-build functionality that makes it easier to build complex applications. In this project, we will not be using any specific library/framework in the frontend so that we can focus on writing code that we control rather than integrating with a specific "black box" that does things for us.
 

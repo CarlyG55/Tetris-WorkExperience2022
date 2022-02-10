@@ -24,7 +24,7 @@ const getClientDirectory = () => {
 }
 
 // All files in the frontend directory available at "<siteurl>/<filename>"
-app.use('/', express.static(getClientDirectory()))
+app.use('/', express.static(getClientDirectory(), { extensions: ['html'] }))
 
 // API endpoints available at "<siteurl>/api/<endpoint>"
 app.use('/api', apiRouter)
