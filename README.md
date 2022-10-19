@@ -1,6 +1,6 @@
 # Tetris
 
-A Tetris game created by Softwire's February 2022 cohort of work experience students.
+A Tetris game created by Softwire's October 2022 cohort of work experience students.
 
 ## Contents
 
@@ -18,26 +18,26 @@ The schedule for the week is as follows (rough times only, these will be adaptab
 |Day/Time| Activity                                                                |
 |--------|-------------------------------------------------------------------------|
 | **Monday**                                                                       |
-| 10:00  | Introductions and setup                                                 |
+| 10:00  | Introductions, tour and setup                                           |
 | 11:00  | Feature specification and Trello setup                                  |
 | 11:30  | Presentation: Git and GitHub                                            |
-| 12:00  | Guest Presentation: APIs (Usman Iqbal)                                  |
 | 12:30  | Lunch break                                                             |
-| 13:30  | Code development                                                        |
+| 13:30  | Guest Presentation: A/B Testing (Emilie Stone)                          |
+| 14:00  | Code development                                                        |
 | 16:00  | End of day                                                              |
 | **Tuesday**                                                                      |
 | 10:00  | Standup meeting                                                         |
 | 10:30  | Presentation: HTML/CSS/JS                                               |
 | 11:15  | Code development                                                        |
 | 12:30  | Lunch break                                                             |
-| 13:30  | Guest Presentation: A/B Testing (Charlie Cumber)                        |
+| 13:30  | CVs and Job Applications (Frances Portaluri)                            |
 | 14:00  | Code development                                                        |
 | 16:00  | End of day                                                              |
 | **Wednesday**                                                                    |
 | 10:00  | Standup meeting                                                         |
 | 10:30  | Presentation: Making HTTP requests and backend development              |
-| 11:00  | Code development                                                        |
-| 12:00  | Guest Presentation: Softwire's Apprentices (Various Presenters)         |
+| 11:00  | Guest Presentation: Careers at Softwire (Frida Childs)                  |
+| 11:30  | Code development                                                        |
 | 12:30  | Lunch break                                                             |
 | 13:30  | Code development                                                        |
 | 16:00  | End of day                                                              |
@@ -45,14 +45,14 @@ The schedule for the week is as follows (rough times only, these will be adaptab
 | 10:00  | Standup meeting                                                         |
 | 10:30  | Presentation: DevOps: How is our Tetris site hosted on Heroku?          |
 | 10:45  | Code development                                                        |
-| 12:30  | Guest Presentation: CV and Job Application Workshop (Frances Portaluri) |
-| 13:00  | Lunch break _(note - this is 30 minutes later than other days)_         |
+| 12:30  | Lunch break                                                             |
+| 13:30  | Guest Presentation: Backtracking Algorithms (Alexander Chamberlain)     |
 | 14:00  | Code development                                                        |
 | 16:00  | End of day                                                              |
 | **Friday**                                                                       |
 | 10:00  | Standup meeting                                                         |
 | 10:30  | Code development                                                        |
-| 12:00  | "Guest" Presentation: Mobile App Development (Cameron McCormack)        |
+| 12:00  | "Guest" Presentation: Developing in React (Carly Gilson)                |
 | 12:30  | Lunch break                                                             |
 | 13:30  | Code development                                                        |
 | 14:30  | Presentation preparation                                                |
@@ -66,10 +66,9 @@ The schedule for the week is as follows (rough times only, these will be adaptab
 
 | What                    | Why                                                                         | Where                                                                 |
 |-------------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------|
-| Trello Board            | To keep track of tasks and their statuses                                   | [here](https://trello.com/b/A96er0uq/work-experience-2022-tetris)     |
-| GitHub repo             | Central location for all of our code                                        | [here](https://github.com/cameronmccormack/Tetris-WorkExperience2022) |
-| Live site               | Where our current `main` branch code is running                             | http://tetris-feb2022.herokuapp.com                                   |
-| Cameron's email address | Any issues that can't be addressed in Teams (e.g. can't join Teams meeting) | cameron.mccormack@softwire.com                                        |
+| Trello Board            | To keep track of tasks and their statuses                                   | [here](https://trello.com/invite/b/YdGhYffT/ATTI0374b2f22c0ece04f7c4c7a8dea218d36CAF5E73/work-experience-october-2022)     |
+| GitHub repo             | Central location for all of our code                                        | [here](https://github.com/CarlyG55/Tetris-WorkExperience2022) |
+| Live site               | Where our current `main` branch code is running                             | http://tetris-oct2022.herokuapp.com                                   |
 
 ### Useful HTML/CSS/JavaScript Guides
 
@@ -130,13 +129,13 @@ To run and access the website locally, you can do the following:
 
 This section will all be covered by a presentation on the first day, so don't worry about this until we've spoken about Git/GitHub! It should be a useful reminder in future though!
 
-Git can be a bit confusing if you're using it for the first time. If you're unsure about any step, just drop me a message and I'll join your breakout room to help. 
+Git can be a bit confusing if you're using it for the first time. If you're unsure about any step, feel free to grab me and we can go over it.
 
 ### Initial Repository Setup
 
 - Clone the repo:
   - This creates a local copy of the code that you can make changes to on your computer. You can do this with the following command line command: 
-  - `git clone https://github.com/cameronmccormack/Tetris-WorkExperience2022.git`
+  - `git clone https://github.com/CarlyG55/Tetris-WorkExperience2022.git`
   - (It's also possible to clone with SSH if you'd prefer, but I'll assume that if you want to use SSH you already know how to do it!)
 
 ### Working on a Feature
@@ -163,7 +162,7 @@ Try not to make changes on the `main` branch, this branch should always only con
 ### Requesting a Review
 
 Once you are happy with your code, you can open GitHub in a browser and do the following:
-- Navigate to the page for the repository [here](https://github.com/cameronmccormack/Tetris-WorkExperience2022)
+- Navigate to the page for the repository [here](https://github.com/CarlyG55/Tetris-WorkExperience2022)
 - Select "Pull requests" in the bar at the top
 - Click the "New pull request" button
 - Set the branches as follows:
