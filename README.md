@@ -92,7 +92,7 @@ The frontend codebase contains all of the code to control what you see on the sc
 - CSS is used to control the formatting and layout of the HTML content
 - JavaScript is used to control the behaviour of different elements on the page
 
-When running (either on Heroku or locally), the files in the frontend directory are available at `<siteurl>/<filename>`. The `index.html` home page is also available at `<siteurl>` and all HTML files can be accessed without the `.html` extension (i.e. `tetris-feb2022.herokuapp.com/game.html` and `tetris-feb2022.herokuapp.com/game` will both route to the same page).
+When running (either on Heroku or locally), the files in the frontend directory are available at `<siteurl>/<filename>`. The `index.html` home page is also available at `<siteurl>` and all HTML files can be accessed without the `.html` extension (i.e. `tetris-oct2022.herokuapp.com/game.html` and `tetris-oct2022.herokuapp.com/game` will both route to the same page).
 
 Lots of websites use frameworks or libraries rather than "Vanilla JavaScript" to put together the site (you may have heard of React, Angular, Vue.js or many more, for example). These provide useful in-build functionality that makes it easier to build complex applications. In this project, we will not be using any specific library/framework in the frontend so that we can focus on writing code that we control rather than integrating with a specific "black box" that does things for us.
 
