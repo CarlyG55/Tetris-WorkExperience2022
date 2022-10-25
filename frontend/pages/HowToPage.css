@@ -1,14 +1,28 @@
 body {
-    background-color: rgb(246, 253, 255);
+    background-color: rgb(189, 189, 189);
   }
   
   h1 {
     color: rgb(0, 0, 0);
     text-align: center;
     font-family: monospace;
+    font-size: 50;
   }
   
+  h2 {
+    color: rgb(131, 245, 111);
+    text-align: center;
+    font-family: monospace;
+    font-size: 30px;
+  }
+  h3 {
+    color: rgb(241, 86, 86);
+    text-align: center;
+    font-family: monospace;
+    font-size: 30px;
+  }
+
   p {
     font-family: arial;
-    font-size: 30px;
+    font-size: 15px;
   }
