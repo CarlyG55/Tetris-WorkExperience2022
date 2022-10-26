@@ -5,17 +5,26 @@ const canvas = document.getElementById("gameCanvas")
 const cxt = canvas.getContext("2d")
 //CONSTANTS
 
+
+let gridMatrix = getEmptygameCanvas(); 
+
+
 cxt.canvas.width = COLS * BLOCK_SIZE;
 cxt.canvas.height = ROWS * BLOCK_SIZE;
 //CALCULATE WIDTH AND HEIGHT OF CANVAS FROM CONSTANTS
-width = cxt.canvas.width;
-height = cxt.canvas.height;
+const width = cxt.canvas.width;
+const height = cxt.canvas.height;
 
 cxt.scale(width, height)
 
-class gameCanvas {
-    constructor(cxt) {
-        this.cxt = cxt;
-        this.gameContainer = this.getEmptygameCanvas();
+function getEmptygameCanvas(){
+    let matrix;
+    for (let i=0; i<ROWS; i++) {
+        for (let j=0; j<COLS; j++) {
+            matrix[i][j]=0;
+            cxt.fillStyle = 0;
+            cxt.fillRect(i*BLOCK_SIZE, j*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+        }
     }
-} 
+    return matrix;
+}
