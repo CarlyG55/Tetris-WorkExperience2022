@@ -55,7 +55,7 @@ const blocks = [
     },
     {
         array: [
-        [0,0,0,1],
+        [0,0,0,0],
         [1,1,0,0],
         [0,1,1,0],
         [0,0,0,0]
@@ -76,3 +76,27 @@ const blocks = [
     },
 
 ]
+
+function clockwise_rotate(arr){
+console.log(arr);
+const newarray = arr[0].map((val, index) => arr.map(row => row[index]).reverse());
+console.log(newarray);
+return newarray;
+}
+
+const object = 2
+
+
+clockwise_rotate(blocks[4].array)
+
+
+function anti_rotate(arr){
+console.log(arr);
+const newarray = arr[0].map((val, index) => arr.map(row => row[row.length-1-index]));
+console.log(newarray);
+return newarray;
+}
+
+    
+anti_rotate(blocks[4].array)
+
