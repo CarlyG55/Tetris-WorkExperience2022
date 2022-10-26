@@ -55,7 +55,7 @@ const blocks = [
     },
     {
         array: [
-        [0,0,0,1],
+        [0,0,0,0],
         [1,1,0,0],
         [0,1,1,0],
         [0,0,0,0]
@@ -76,3 +76,5 @@ const blocks = [
     },
 
 ]
+
+console.log(array)
