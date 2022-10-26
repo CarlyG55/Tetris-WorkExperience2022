@@ -7,6 +7,7 @@ const cxt = canvas.getContext("2d")
 
 
 let gridMatrix = getEmptygameCanvas(); 
+let block = generateBlock();
 
 
 cxt.canvas.width = COLS * BLOCK_SIZE;
@@ -18,8 +19,9 @@ const height = cxt.canvas.height;
 cxt.scale(width, height)
 
 function getEmptygameCanvas(){
-    let matrix;
+    let matrix = [];
     for (let i=0; i<ROWS; i++) {
+        matrix[i] = [];
         for (let j=0; j<COLS; j++) {
             matrix[i][j]=0;
             cxt.fillStyle = 0;
@@ -28,3 +30,11 @@ function getEmptygameCanvas(){
     }
     return matrix;
 }
+
+function generateBlock(){
+    let randomNumber = Math.floor(Math.random()*7);
+    const randomBlock = blocks[randomNumber]
+    return {array: randomBlock.array,
+    color: randomBlock.colour,
+    row: -1,
+    column: 5}}
