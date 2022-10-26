@@ -1,28 +1,40 @@
 body {
-    background-color: rgb(189, 189, 189);
+  background-color: rgb(165, 161, 161);
   }
   
   h1 {
-    color: rgb(0, 0, 0);
-    text-align: center;
-    font-family: monospace;
-    font-size: 50;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-family: monospace;
+  font-size:50px;
   }
   
-  h2 {
-    color: rgb(131, 245, 111);
-    text-align: center;
-    font-family: monospace;
-    font-size: 30px;
-  }
-  h3 {
-    color: rgb(241, 86, 86);
-    text-align: center;
-    font-family: monospace;
-    font-size: 30px;
-  }
-
   p {
-    font-family: arial;
-    font-size: 15px;
+  font-family: arial;
+  font-size: 30px;
+  text-align: center;
+  }
+  h2 {font-size: 40px;
+  text-align: center;
+  color: rgb(83, 15, 84);
+  font-family: monospace;
+  }
+  h3 {font-size : 50px ;
+  text-align:center;
+  color: rgb(189, 11, 11);
+  font-family: monospace;
+  }
+  h4 {font-size: 40px;
+  text-align: center;
+  color: rgb(83, 15, 84);
+  font-family: monospace;
+  }
+  html {
+      border: 20px solid rgb(83, 15, 84);
+      background-color: #9f9faa;
+    }
+  h5 {font-size: 25px;
+      text-align: center;
+      color: rgb(63, 168, 25);
+      font-family: monospace;
   }
