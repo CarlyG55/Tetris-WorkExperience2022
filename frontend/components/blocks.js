@@ -77,4 +77,12 @@ const blocks = [
 
 ]
 
-console.log(array)
+function clockwise_rotate(arr){
+const newarray = arr[0].map((val, index) => arr.map(row => row[index]).reverse());
+return newarray;
+}
+
+function anti_rotate(arr){
+const newarray = arr[0].map((val, index) => arr.map(row => row[row.length-1-index]));
+return newarray;
+}
