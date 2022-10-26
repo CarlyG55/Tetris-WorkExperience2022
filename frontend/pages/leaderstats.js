@@ -1,26 +1,16 @@
-const table = document.getElementById("#ScoreTable");
-
-var LeaderboardData = {
-    "jhon":1, "Amy":2, "Jeff":3
-};
-
-function addRows(name, score) {
-    const table = document.getElementById("ScoreTable");
-
-    console.log(table);
-    let newRow = table.insertRow(-1);
-    let newCell1 = newRow.insertCell(0);
-    let newCell2 = newRow.insertCell(1);
-    let NameofPerson = document.createTextNode(name);
-    let ScoreofPerson = document.createTextNode(score);
-    newCell1.appendChild(NameofPerson);
-    newCell2.appendChild(ScoreofPerson);
-   }
-
-function loop() {
-    for (let person in LeaderboardData) {
-        names = person.key
-        score = person.value
-        addRows(names, score)
-    }
-}
+fetch("./LeaderBoardData.json")
+.then(data => {
+    return data.json();
+})
+.then(insideData => {
+    let TableData = "";
+    insideData.map(values => {
+        TableData += 
+        `<tr>
+        <td> ${values.name} </td>
+        <td> ${values.score} </td>
+        </tr>`
+    });
+    
+    document.getElementById("bodyOfTable").innerHTML = TableData;
+})
