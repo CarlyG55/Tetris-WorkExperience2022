@@ -7,6 +7,7 @@ const cxt = canvas.getContext("2d")
 
 
 let gridMatrix = getEmptygameCanvas(); 
+let block = generateBlock();
 
 
 cxt.canvas.width = COLS * BLOCK_SIZE;
@@ -47,4 +48,10 @@ function getEmptyholdCanvas(){
     return holdMatrix
 }
 
-console.log(holdGridMatrix)
+function generateBlock(){
+    let randomNumber = Math.floor(Math.random()*7);
+    const randomBlock = blocks[randomNumber]
+    return {array: randomBlock.array,
+    color: randomBlock.colour,
+    row: -1,
+    column: 5}}
