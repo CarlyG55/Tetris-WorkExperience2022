@@ -23,8 +23,22 @@ const getClientDirectory = () => {
     return path.join(currentModuleDirectory, '../../frontend/pages')
 }
 
+const getCssDirectory = () => {
+    const currentModuleFile = fileURLToPath(import.meta.url)
+    const currentModuleDirectory = path.dirname(currentModuleFile)
+    return path.join(currentModuleDirectory, '../../frontend/styles')
+}
+
+const getScriptsDirectory = () => {
+    const currentModuleFile = fileURLToPath(import.meta.url)
+    const currentModuleDirectory = path.dirname(currentModuleFile)
+    return path.join(currentModuleDirectory, '../../frontend/scripts')
+}
+
 // All files in the frontend directory available at "<siteurl>/<filename>"
 app.use('/', express.static(getClientDirectory(), { extensions: ['html'] }))
+app.use('/static/styles/', express.static(getStylesDirectory()))
+app.use('/static/scripts/', express.static(getScriptDirectory()))
 
 // API endpoints available at "<siteurl>/api/<endpoint>"
 app.use('/api', apiRouter)
