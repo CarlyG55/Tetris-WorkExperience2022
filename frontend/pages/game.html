@@ -7,8 +7,14 @@
 -->
 
 <head>
+    <title>Tetris - | Free Online Game | - </title>
     <meta charset="utf-8">
+<<<<<<< HEAD
     <link rel="stylesheet" href="static/styles/main.css">
+=======
+    <link rel="icon" href="logo22.png">
+    <link rel="stylesheet" href="../styles/main.css">
+>>>>>>> e1d6b09 (Added a timer to the gameplay page)
 </head>
 
 
@@ -21,7 +27,58 @@
         <canvas id="nextCanvas"></canvas>
     </div>
 
+<<<<<<< HEAD
     <script src="static/scripts/game.js"></script>
+=======
+    <div class = "timer">
+        <canvas id="timer"></canvas>
+    
+
+    </div>
+    <div id="div1">
+      
+      
+        <button class="click-me" onclick="startCountUp()">Start</button>
+        
+        <div id="countup-text"></div>
+      </div>
+
+    
+<script type="text/javascript">
+var isSetTimmeoutRunning = false;
+  function startCountUp(){
+
+  if( isSetTimmeoutRunning == false ){
+    isSetTimmeoutRunning = true;
+    
+    setTimeout(function(){
+      isSetTimmeoutRunning = false;
+      alert(2 + " minutes have passed.");
+    }, 120000);
+    
+    var counter = 0;
+    
+    document.getElementById("countup-text").innerHTML = "<p>" + 0 + "</p>";
+
+    var interval = setInterval(function(){
+      counter++;
+      document.getElementById("countup-text").innerHTML = "<p>" + counter + "</p>";
+      if( counter == 100000 ){
+        document.getElementById("countup-text").innerHTML = "";
+        clearInterval(interval);
+      }
+      if (document.URL.includes("gameOver.html")){
+        alert("Your time is up")
+        timer.stop()
+      }
+    }, 1000);
+  }
+}
+
+
+</script>
+
+>>>>>>> e1d6b09 (Added a timer to the gameplay page)
 </body>
 
 </html>
