@@ -1,6 +1,6 @@
 /*javascript 2d array practice, am attempt to create arrays for the tetriminoes*/
 
-const blocks = [
+export const blocks = [
     {
         array: [
         [0,0,0,0],

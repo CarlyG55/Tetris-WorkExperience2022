@@ -1,3 +1,80 @@
+const blocks = [
+    {
+        array: [
+        [0,0,0,0],
+        [0,1,1,0],
+        [0,1,1,0],
+        [0,0,0,0]
+        ],
+        colour: 'yellow',
+        piece_name: 'oh'
+    },
+       
+    {
+        array: [
+        [0,0,1,0],
+        [0,0,1,0],
+        [0,1,1,0],
+        [0,0,0,0]
+        ],
+        colour: 'blue',
+        piece_name: 'jay'
+    },
+    {
+        array: [
+       [0,1,0,0],
+       [0,1,0,0],
+       [0,1,1,0],
+       [0,0,0,0]
+        ],
+        colour: 'orange',
+        piece_name: 'elle'
+    },
+       
+    {
+        array: [
+        [0,0,0,0],
+        [0,0,1,1],
+        [0,1,1,0],
+        [0,0,0,0]
+        ],
+        colour: 'green',
+        piece_name: 'ess'
+    },
+    {
+        array: [
+        [0,0,0,0],
+        [0,1,1,1],
+        [0,0,1,0],
+        [0,0,0,0]
+        ],
+        colour: 'purple',
+        piece_name: 'tee'
+    },
+    {
+        array: [
+        [0,0,0,0],
+        [1,1,0,0],
+        [0,1,1,0],
+        [0,0,0,0]
+        ],
+        colour: 'red',
+        piece_name: 'zed'
+    },
+       
+    {
+        array: [
+        [0,0,0,1],
+        [0,0,0,1],
+        [0,0,0,1],
+        [0,0,0,1]
+        ],
+        colour: 'cyan',
+        piece_name: 'eye'
+    },
+
+]
+
 const COLS = 10;
 const ROWS = 20;
 const BLOCK_SIZE = 40; //
@@ -116,4 +193,6 @@ window.onkeydown = function(move){
         block.row--;
     }
 
+
 }
+window.requestAnimationFrame(game);
