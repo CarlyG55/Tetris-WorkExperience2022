@@ -82,14 +82,7 @@ const newarray = arr[0].map((val, index) => arr.map(row => row[index]).reverse()
 return newarray;
 }
 
-clockwise_rotate(blocks[4].array)
-
-
 function anti_rotate(arr){
 const newarray = arr[0].map((val, index) => arr.map(row => row[row.length-1-index]));
 return newarray;
 }
-
-    
-anti_rotate(blocks[4].array)
-
