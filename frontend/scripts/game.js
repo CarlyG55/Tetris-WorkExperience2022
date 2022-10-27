@@ -5,7 +5,7 @@ const canvas = document.getElementById("gameCanvas")
 const cxt = canvas.getContext("2d")
 const left_arrow = 37
 const right_arrow = 39
-const down_arrow = 25
+const down_arrow = 40
 //CONSTANTS
 
 
@@ -117,3 +117,25 @@ window.onkeydown = function(move){
     }
 
 }
+//timer
+
+var isSetTimmeoutRunning = false;
+
+function startCountUp(){
+    isSetTimmeoutRunning = true;
+    var counter = 0;
+    
+    document.getElementById("countup-text").innerHTML = "<p>" + 0 + "</p>";
+
+    var interval = setInterval(function(){
+      counter++;
+      document.getElementById("countup-text").innerHTML = "<p>" + counter + "</p>";
+      if( isSetTimmeoutRunning === false ){
+        document.getElementById("countup-text").innerHTML = "";
+        clearInterval(interval);
+      }
+      
+    }, 1000);
+}
+
+startCountUp();

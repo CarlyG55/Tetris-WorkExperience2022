@@ -41,7 +41,6 @@ body {
     opacity: 0.8;
 }
 
-<<<<<<< HEAD
 #nextCanvas{
     margin-left: 200px;
     box-shadow: 10px 10px 10px rgb(0, 0, 0);
@@ -50,7 +49,8 @@ body {
     height: 600px;
     background-color: black;
     opacity: 0.8;
-=======
+}
+
 .timer{
     position: relative;
     box-shadow: 10px 10px 10px rgb(0, 0, 0);
@@ -74,7 +74,6 @@ body {
     bottom: 500px;
     left: 246px;
     color: aliceblue;
->>>>>>> a82d813 (Added a timer)
 }
 
 
