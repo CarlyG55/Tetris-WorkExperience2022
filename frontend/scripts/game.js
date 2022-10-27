@@ -32,7 +32,7 @@ function getEmptygameCanvas(){
 }
 
 //GENERATES GAME CANVAS GRID
-
+let counter = 0;
 let holdGridMatrix = getEmptyholdCanvas();
 
 function getEmptyholdCanvas(){
@@ -55,3 +55,32 @@ function generateBlock(){
     color: randomBlock.colour,
     row: -1,
     column: 5}}
+
+// create main game function
+function game(){
+    // remake game canvas
+    cxt.clearRect(0,0,width,height);
+    //draw fixed blocks
+    for (let i=0; i<ROWS; i++) {
+        for (let j=0; j<COLS; j++) {
+            cxt.fillStyle = gridMatrix[i][j];
+            cxt.fillRect(i*BLOCK_SIZE, j*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+        }
+    }
+    //move block down
+    counter++;
+    if (counter > 40){
+        counter=0;
+        block.row++;
+    
+    }
+    //fill block in play
+    for (let row=0; row<block.array.length; row++) {
+        for (let col=0; col<row.length; col++) {
+            if (block.array[row][col] !=0){
+                cxt.fillStyle = block.colour;
+                cxt.fillRect((block.row+row)*BLOCK_SIZE, (block.col+col)*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+            }
+        }
+    }
+}
