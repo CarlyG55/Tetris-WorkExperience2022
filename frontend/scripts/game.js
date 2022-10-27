@@ -84,7 +84,7 @@ const z_key = 90
 const up_key = 38
 const left_arrow = 37
 const right_arrow = 39
-const down_arrow = 25
+const down_arrow = 40
 //CONSTANTS
 
 
@@ -213,7 +213,7 @@ window.onkeydown = function(move){
         block.column++;
     }
     if (move.keyCode === down_arrow) {
-        block.row--;
+        block.row++;
     }
     if (move.keyCode === up_key) {
         block.array = clockwise_rotate(block.array)
