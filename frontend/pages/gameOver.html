@@ -48,13 +48,13 @@
     </div>
 <!--add link to game page and home page when button is clicked-->
 <!--add text 'better luck next time!' and 'well done!' depending on whether they have beaten their high score or not.-->
-
-    <audio src="CREEPY BROKEN TORNADO SIREN IN CHICAGO (128 kbps).mp3" id ="my_audio" type="audio/mpeg" loop="loop" autoplay="autoplay">
+    <audio id="musicplayer" autoplay loop>
+    <source src="CREEPY BROKEN TORNADO SIREN IN CHICAGO (128 kbps).mp3"/>
     <script type="text/javascript">
-        window.onload= function(){
-            document.getElementById("my_audio").play();
-        }
-        </script>
+        window.onkeydown= function(){
+            document.getElementById("musicplayer").play();
+            }
+    </script>
     </audio>
 
 <!--doesn't work at the moment because website is not secure; should work when we host it on heroku-->

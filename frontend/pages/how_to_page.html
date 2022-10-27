@@ -42,12 +42,15 @@
 <p><b>If you stack the blocks too high the game is over!!</b></p>
 <p><b>Score as many points as possible by clearing every square within a row!!!</b></p>
 
-    <audio src="Elevator Music (128 kbps).mp3" id ="my_audio" type="audio/mpeg" loop="loop" autoplay="autoplay">
+ 
+    <audio id="musicplayer3" autoplay loop>
+    <source src="Elevator Music (128 kbps).mp3"/>
     <script type="text/javascript">
-        window.onload= function(){
-            document.getElementById("my_audio").play();
-        }
-        </script>
+        window.onkeydown= function(){
+            document.getElementById("musicplayer3").play();
+            }
+    </script>
     </audio>
+
 
 </html>
