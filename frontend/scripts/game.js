@@ -3,10 +3,14 @@ const ROWS = 20;
 const BLOCK_SIZE = 40; //
 const canvas = document.getElementById("gameCanvas") 
 const cxt = canvas.getContext("2d")
+const left_arrow = 37
+const right_arrow = 39
+const down_arrow = 25
 //CONSTANTS
 
 
 let gridMatrix = getEmptygameCanvas(); 
+
 let block = generateBlock();
 
 
@@ -83,4 +87,18 @@ function game(){
             }
         }
     }
+}
+
+window.onkeydown = function(move){
+    if (move.keyCode === left_arrow) {
+        block.column--;
+    }
+    else if (move.keyCode === right_arrow) {
+        block.column++;
+    }
+    
+    else if (move.keyCode === down_arrow) {
+        block.row--;
+    }
+
 }
