@@ -3,6 +3,9 @@ const ROWS = 20;
 const BLOCK_SIZE = 40; //
 const canvas = document.getElementById("gameCanvas") 
 const cxt = canvas.getContext("2d")
+const z_key = 90
+const up_key = 38
+
 //CONSTANTS
 
 
@@ -75,3 +78,4 @@ window.onkeydown = function(rotate){
         block.array = anti_rotate(block.array)
     }
     }
+

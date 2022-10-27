@@ -1,7 +1,5 @@
 /*javascript 2d array practice, am attempt to create arrays for the tetriminoes*/
-const z_key = 90
-const up_key = 38
-const object = 2
+
 
 const blocks = [
     {
