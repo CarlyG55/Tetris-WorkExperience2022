@@ -1,4 +1,7 @@
 /*javascript 2d array practice, am attempt to create arrays for the tetriminoes*/
+const z_key = 90
+const up_key = 38
+const object = 2
 
 const blocks = [
     {
@@ -76,13 +79,3 @@ const blocks = [
     },
 
 ]
-
-function clockwise_rotate(arr){
-const newarray = arr[0].map((val, index) => arr.map(row => row[index]).reverse());
-return newarray;
-}
-
-function anti_rotate(arr){
-const newarray = arr[0].map((val, index) => arr.map(row => row[row.length-1-index]));
-return newarray;
-}

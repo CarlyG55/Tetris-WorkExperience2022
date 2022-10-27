@@ -55,3 +55,23 @@ function generateBlock(){
     color: randomBlock.colour,
     row: -1,
     column: 5}}
+
+
+function clockwise_rotate(arr){
+   const newarray = arr[0].map((val, index) => arr.map(row => row[index]).reverse());
+   return newarray;
+   }
+    
+function anti_rotate(arr){
+    const newarray = arr[0].map((val, index) => arr.map(row => row[row.length-1-index]));
+    return newarray;
+    }
+        
+window.onkeydown = function(rotate){
+    if (rotate.keyCode === up_key) {
+        block.array = clockwise_rotate(block.array)
+    }
+    else if (rotate.keyCode === z_key) {
+        block.array = anti_rotate(block.array)
+    }
+    }
