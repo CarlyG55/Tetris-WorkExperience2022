@@ -1,16 +1,37 @@
+function sortByProperty(property){  
+    return function(a,b){  
+       if(a[property] > b[property])  
+          return -1;  
+       else if(a[property] < b[property])  
+          return 1;  
+   
+       return 0;  
+    }  
+ }
+
 fetch("./LeaderBoardData.json")
+
 .then(data => {
-    return data.json();
+    let data1 = data.json();
+    return data1;
 })
-.then(insideData => {
+
+.then(data => {
+    data.sort(sortByProperty("score"));
+    console.log(data);
+    return data;
+})
+
+.then(sortedData => {
     let TableData = "";
-    insideData.map(values => {
+    
+    sortedData.map(values => {
         TableData += 
         `<tr>
         <td> ${values.name} </td>
         <td> ${values.score} </td>
         </tr>`
-    });
-    
+    })
+
     document.getElementById("bodyOfTable").innerHTML = TableData;
 })
