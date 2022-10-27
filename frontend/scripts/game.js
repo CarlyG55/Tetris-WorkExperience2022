@@ -10,7 +10,7 @@ const down_arrow = 25
 
 
 let gridMatrix = getEmptygameCanvas(); 
-
+let timeUntilMoveDown=40;
 let block = generateBlock();
 
 
@@ -75,6 +75,9 @@ function generateBlock(){
     row: -1,
     column: 5}}
 
+function updateTimeUntilMoveDown(){
+    timeUntilMoveDown = timeUntilMoveDown - 5
+}
 // create main game function
 function game(){
     // remake game canvas
@@ -88,11 +91,18 @@ function game(){
     }
     //move block down
     counter++;
-    if (counter > 40){
+    if (counter > timeUntilMoveDown){
         counter=0;
         block.row++;
-    
     }
+
+    //decrease counter to 15
+    while (timeUntilMoveDown>15){
+        setInterval(updateTimeUntilMoveDown, 60000)
+    }
+    
+    
+
     //fill block in play
     for (let row=0; row<block.array.length; row++) {
         for (let col=0; col<row.length; col++) {
