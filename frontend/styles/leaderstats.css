@@ -6,6 +6,7 @@
 	list-style: none;
 	box-sizing: border-box;
 	font-family: 'Press Start 2P', cursive;
+  font-size: x-large;
 }
 
 body{
@@ -49,14 +50,14 @@ body{
   background-color: azure;
 }
 
-.LeaderTable tr:nth-child(2) {
+.LeaderTable tr:nth-child(1) {
   background-color: gold;
 }
 
-.LeaderTable tr:nth-child(3) {
+.LeaderTable tr:nth-child(2) {
   background-color: silver;
 }
 
-.LeaderTable tr:nth-child(4){
+.LeaderTable tr:nth-child(3){
   background-color: #CD7F32;
 }
