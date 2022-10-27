@@ -9,7 +9,7 @@ function sortByProperty(property){
     }  
  }
 
-fetch("./LeaderBoardData.json")
+fetch("./LeaderboardData.json")
 
 .then(data => {
     let data1 = data.json();
