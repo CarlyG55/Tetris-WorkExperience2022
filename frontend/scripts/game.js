@@ -6,6 +6,7 @@ const cxt = canvas.getContext("2d")
 const left_arrow = 37
 const right_arrow = 39
 const down_arrow = 25
+const pause = document.getElementById("pauseButton")
 //CONSTANTS
 
 
