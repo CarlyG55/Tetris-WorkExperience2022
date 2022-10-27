@@ -52,6 +52,21 @@ function getEmptyholdCanvas(){
     return holdMatrix
 }
 
+let nextGridMatrix = getEmptynextCanvas();
+
+function getEmptynextCanvas(){
+    let nextMatrix = [];
+    for (let x=0; x<12; x++) {
+        nextMatrix[x] = [];
+        for (let y=0; y<4; y++) {
+            nextMatrix[x][y]=0;
+            cxt.fillStyle = 0;
+            cxt.fillRect(x*BLOCK_SIZE, y*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+        }
+    }
+    return nextMatrix
+}
+
 function generateBlock(){
     let randomNumber = Math.floor(Math.random()*7);
     const randomBlock = blocks[randomNumber]
