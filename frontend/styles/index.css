@@ -1,1 +1,64 @@
-@import './main.css'
+@import './main.css';
+
+.title{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 800;
+    font-size: 70px;
+}
+
+p {
+    font-size: large;
+}
+
+h1 {
+    position: relative;
+    text-align: center;
+}
+
+.how-to{
+    position: relative;
+    left: 1138px;
+    height: 80px;
+    width: 120px;
+    top: 500px;
+    border-radius: 10px;
+
+}
+
+.how-to:hover{
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 4px #555;
+    transition: 1s;
+}
+
+img {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    left: 1007px;
+    top: 300px;
+
+}
+
+ion-icon{
+    font-size: xx-large;
+}
+
+.gameplay{
+    position: relative;
+    background-color: green;
+    font-size: large;
+    width: 120px;
+    height: 80px;
+    left: 693px;
+    top: 293px;
+    border-radius: 10px;
+}
+
+.gameplay:hover{
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 4px #555;
+    transition: 1s;
+}
