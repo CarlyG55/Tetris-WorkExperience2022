@@ -80,6 +80,8 @@ const ROWS = 20;
 const BLOCK_SIZE = 40; //
 const canvas = document.getElementById("gameCanvas") 
 const cxt = canvas.getContext("2d")
+const z_key = 90
+const up_key = 38
 const left_arrow = 37
 const right_arrow = 39
 const down_arrow = 25
@@ -152,6 +154,25 @@ function generateBlock(){
     row: -1,
     column: 5}
 }
+
+function clockwise_rotate(arr){
+   const newarray = arr[0].map((val, index) => arr.map(row => row[index]).reverse());
+   return newarray;
+   }
+    
+function anti_rotate(arr){
+    const newarray = arr[0].map((val, index) => arr.map(row => row[row.length-1-index]));
+    return newarray;
+    }
+        
+window.onkeydown = function(rotate){
+    if (rotate.keyCode === up_key) {
+        block.array = clockwise_rotate(block.array)
+    }
+    else if (rotate.keyCode === z_key) {
+        block.array = anti_rotate(block.array)
+    }
+    }
 
 // create main game function
 function game(){
