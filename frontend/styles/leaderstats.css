@@ -1,62 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-*{
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	box-sizing: border-box;
-	font-family: 'Press Start 2P', cursive;
-}
-
-body{
-	background-image: url(..components/Gameplay-background-image.jpg);
-}
-
-.LeaderTable{
-  width: 900px;
-	height: 100px;
-	margin: 100px auto 0;
-  position: relative;
+.LeaderTable {
+  width: 50%;
   border: 2px solid;
-	border-radius: 5px;
-  background-color: white;
+  margin: auto;
 }
 
-.LeaderTable td:hover,
-.LeaderTable td:hover ul li.active{
-	background-color: orange;
+.LeaderTable th {
+  padding: 10px 0px 10px 0px;
+  border-bottom: 5px solid black;
 }
-  
- .LeaderTable th {
-    color: white;
-    padding: 10px 0px 10px 0px;
-    border-bottom: 2px solid black;
-}
-  
+
 .LeaderTable td {
-    padding: 5px 0px 5px 15px;
+  padding: 5px 0px 5px 15px;
+  border-left: 2px solid black;
 }
 
-.LeaderTable th{
-  background-color: black;
-}
-
- .LeaderTable td:first-child {
-    border-left: none;
+.LeaderTable td:first-child {
+  border-left: none;
+  border-right: 2px solid black;
 }
 
 .LeaderTable tr:nth-child(even) {
   background-color: azure;
-}
-
-.LeaderTable tr:nth-child(2) {
-  background-color: gold;
-}
-
-.LeaderTable tr:nth-child(3) {
-  background-color: silver;
-}
-
-.LeaderTable tr:nth-child(4){
-  background-color: #CD7F32;
 }
