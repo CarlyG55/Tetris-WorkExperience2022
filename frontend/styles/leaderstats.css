@@ -9,7 +9,7 @@
 }
 
 body{
-	background: coral;
+	background-image: url(..components/Gameplay-background-image.jpg);
 }
 
 .LeaderTable{
