@@ -22,7 +22,6 @@ body {
 
 
 #gameCanvas{ 
-    order: 2;
     box-shadow: 10px 10px 10px rgb(0, 0, 0);
     border: 2px solid rgb(0, 4, 255);
     width: 400px; 
@@ -33,8 +32,7 @@ body {
 }
 
 #holdCanvas{ 
-    margin-right: 250px;
-    order: 1;
+    margin-right: 200px;
     box-shadow: 10px 10px 10px rgb(0, 0, 0);
     border: 2px solid rgb(0, 4, 255);
     width: 250px; 
@@ -43,6 +41,15 @@ body {
     opacity: 0.8;
 }
 
+#nextCanvas{
+    margin-left: 200px;
+    box-shadow: 10px 10px 10px rgb(0, 0, 0);
+    border: 2px solid rgb(0, 4, 255);
+    width: 250px; 
+    height: 600px;
+    background-color: black;
+    opacity: 0.8;
+}
 
 
 
