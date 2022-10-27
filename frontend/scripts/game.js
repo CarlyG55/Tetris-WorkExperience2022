@@ -64,10 +64,10 @@ const blocks = [
        
     {
         array: [
-        [0,0,0,1],
-        [0,0,0,1],
-        [0,0,0,1],
-        [0,0,0,1]
+        [0,0,1,0],
+        [0,0,1,0],
+        [0,0,1,0],
+        [0,0,1,0]
         ],
         colour: 'cyan',
         piece_name: 'eye'
@@ -184,7 +184,7 @@ function game(){
         for (let j=0; j<COLS; j++) {
             if (gridMatrix[i][j] !== 0) {
                 cxt.fillStyle = gridMatrix[i][j];
-                cxt.fillRect(j*BLOCK_SIZE, i*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+                cxt.fillRect(j*BLOCK_SIZE, i*BLOCK_SIZE, BLOCK_SIZE-0.5, BLOCK_SIZE-0.5)
             }
         }
     }
@@ -199,7 +199,7 @@ function game(){
         for (let col=0; col<block.array[row].length; col++) {
             if (block.array[row][col] !== 0){
                 cxt.fillStyle = block.colour;
-                cxt.fillRect((block.column+col)*BLOCK_SIZE, (block.row+row)*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+                cxt.fillRect((block.column+col)*BLOCK_SIZE, (block.row+row)*BLOCK_SIZE, BLOCK_SIZE-0.5, BLOCK_SIZE-0.5)
             }
         }
     }
@@ -209,14 +209,17 @@ window.onkeydown = function(move){
     if (move.keyCode === left_arrow) {
         block.column--;
     }
-    else if (move.keyCode === right_arrow) {
+    if (move.keyCode === right_arrow) {
         block.column++;
     }
-    
-    else if (move.keyCode === down_arrow) {
+    if (move.keyCode === down_arrow) {
         block.row--;
     }
-
-
+    if (move.keyCode === up_key) {
+        block.array = clockwise_rotate(block.array)
+    }
+    if (move.keyCode === z_key) {
+        block.array = anti_rotate(block.array)
+    }
 }
 raf = requestAnimationFrame(game);
