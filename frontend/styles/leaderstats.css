@@ -1,24 +1,71 @@
-.LeaderTable {
-  width: 50%;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+	font-family: 'Press Start 2P', cursive;
+}
+
+body{
+  background: rgb(40,58,184);
+  background: linear-gradient(90deg, rgba(40,58,184,1) 0%, rgba(141,55,158,1) 100%);
+}
+
+.LeaderTable{
+  width: 900px;
+	height: 100px;
+	margin: 100px auto 0;
+  position: relative;
   border: 2px solid;
-  margin: auto;
+	border-radius: 5px;
+  background-color: white;
 }
 
-.LeaderTable th {
-  padding: 10px 0px 10px 0px;
-  border-bottom: 5px solid black;
+.LeaderTable th{
+  font-size: 30px;
 }
 
+.LeaderTable tbody{
+  font-size: 25px;
+}
+
+.LeaderTable td:hover,
+.LeaderTable td:hover ul li.active{
+	background-color: orange;
+}
+  
+ .LeaderTable th {
+    color: white;
+    padding: 10px 0px 10px 0px;
+    border-bottom: 2px solid black;
+}
+  
 .LeaderTable td {
-  padding: 5px 0px 5px 15px;
-  border-left: 2px solid black;
+    padding: 5px 0px 5px 15px;
 }
 
-.LeaderTable td:first-child {
-  border-left: none;
-  border-right: 2px solid black;
+.LeaderTable th{
+  background-color: black;
+}
+
+ .LeaderTable td:first-child {
+    border-left: none;
 }
 
 .LeaderTable tr:nth-child(even) {
   background-color: azure;
+}
+
+.LeaderTable tr:nth-child(1) {
+  background-color: gold;
+}
+
+.LeaderTable tr:nth-child(2) {
+  background-color: silver;
+}
+
+.LeaderTable tr:nth-child(3){
+  background-color: #CD7F32;
 }
