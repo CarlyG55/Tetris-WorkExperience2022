@@ -1,3 +1,80 @@
+const blocks = [
+    {
+        array: [
+        [0,0,0,0],
+        [0,1,1,0],
+        [0,1,1,0],
+        [0,0,0,0]
+        ],
+        colour: 'yellow',
+        piece_name: 'oh'
+    },
+       
+    {
+        array: [
+        [0,0,1,0],
+        [0,0,1,0],
+        [0,1,1,0],
+        [0,0,0,0]
+        ],
+        colour: 'blue',
+        piece_name: 'jay'
+    },
+    {
+        array: [
+       [0,1,0,0],
+       [0,1,0,0],
+       [0,1,1,0],
+       [0,0,0,0]
+        ],
+        colour: 'orange',
+        piece_name: 'elle'
+    },
+       
+    {
+        array: [
+        [0,0,0,0],
+        [0,0,1,1],
+        [0,1,1,0],
+        [0,0,0,0]
+        ],
+        colour: 'green',
+        piece_name: 'ess'
+    },
+    {
+        array: [
+        [0,0,0,0],
+        [0,1,1,1],
+        [0,0,1,0],
+        [0,0,0,0]
+        ],
+        colour: 'purple',
+        piece_name: 'tee'
+    },
+    {
+        array: [
+        [0,0,0,0],
+        [1,1,0,0],
+        [0,1,1,0],
+        [0,0,0,0]
+        ],
+        colour: 'red',
+        piece_name: 'zed'
+    },
+       
+    {
+        array: [
+        [0,0,0,1],
+        [0,0,0,1],
+        [0,0,0,1],
+        [0,0,0,1]
+        ],
+        colour: 'cyan',
+        piece_name: 'eye'
+    },
+
+]
+
 const COLS = 10;
 const ROWS = 20;
 const BLOCK_SIZE = 40; //
@@ -10,7 +87,7 @@ const down_arrow = 25
 
 
 let gridMatrix = getEmptygameCanvas(); 
-
+let raf = null;
 let block = generateBlock();
 
 
@@ -20,7 +97,7 @@ cxt.canvas.height = ROWS * BLOCK_SIZE;
 const width = cxt.canvas.width;
 const height = cxt.canvas.height;
 
-cxt.scale(width, height)
+//cxt.scale(width, height)
 
 function getEmptygameCanvas(){
     let matrix = [];
@@ -29,7 +106,7 @@ function getEmptygameCanvas(){
         for (let j=0; j<COLS; j++) {
             matrix[i][j]=0;
             cxt.fillStyle = 0;
-            cxt.fillRect(i*BLOCK_SIZE, j*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+            cxt.fillRect(j*BLOCK_SIZE, i*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
         }
     }
     return matrix;
@@ -46,7 +123,7 @@ function getEmptyholdCanvas(){
         for (let y=0; y<4; y++) {
             holdMatrix[x][y]=0;
             cxt.fillStyle = 0;
-            cxt.fillRect(x*BLOCK_SIZE, y*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+            cxt.fillRect(y*BLOCK_SIZE, x*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
         }
     }
     return holdMatrix
@@ -61,7 +138,7 @@ function getEmptynextCanvas(){
         for (let y=0; y<4; y++) {
             nextMatrix[x][y]=0;
             cxt.fillStyle = 0;
-            cxt.fillRect(x*BLOCK_SIZE, y*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+            cxt.fillRect(y*BLOCK_SIZE, x*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
         }
     }
     return nextMatrix
@@ -71,34 +148,37 @@ function generateBlock(){
     let randomNumber = Math.floor(Math.random()*7);
     const randomBlock = blocks[randomNumber]
     return {array: randomBlock.array,
-    color: randomBlock.colour,
+    colour: randomBlock.colour,
     row: -1,
-    column: 5}}
+    column: 5}
+}
 
 // create main game function
 function game(){
+    raf = requestAnimationFrame(game);
     // remake game canvas
     cxt.clearRect(0,0,width,height);
     //draw fixed blocks
     for (let i=0; i<ROWS; i++) {
         for (let j=0; j<COLS; j++) {
-            cxt.fillStyle = gridMatrix[i][j];
-            cxt.fillRect(i*BLOCK_SIZE, j*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+            if (gridMatrix[i][j] !== 0) {
+                cxt.fillStyle = gridMatrix[i][j];
+                cxt.fillRect(j*BLOCK_SIZE, i*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+            }
         }
     }
     //move block down
     counter++;
-    if (counter > 40){
+    if (counter > 100){
         counter=0;
         block.row++;
-    
     }
     //fill block in play
     for (let row=0; row<block.array.length; row++) {
-        for (let col=0; col<row.length; col++) {
-            if (block.array[row][col] !=0){
+        for (let col=0; col<block.array[row].length; col++) {
+            if (block.array[row][col] !== 0){
                 cxt.fillStyle = block.colour;
-                cxt.fillRect((block.row+row)*BLOCK_SIZE, (block.col+col)*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+                cxt.fillRect((block.column+col)*BLOCK_SIZE, (block.row+row)*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
             }
         }
     }
@@ -116,4 +196,6 @@ window.onkeydown = function(move){
         block.row--;
     }
 
+
 }
+raf = requestAnimationFrame(game);

@@ -22,8 +22,8 @@ body {
 
 
 #gameCanvas{ 
-    box-shadow: 10px 10px 10px rgb(0, 0, 0);
-    border: 2px solid rgb(0, 4, 255);
+    /*box-shadow: 10px 10px 10px rgb(0, 0, 0);*/
+    /*border: 2px solid rgb(0, 4, 255);*/
     width: 400px; 
     height: 800px;
     background-color: black;
