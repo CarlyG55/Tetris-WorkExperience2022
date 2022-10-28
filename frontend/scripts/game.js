@@ -85,12 +85,15 @@ const up_key = 38
 const left_arrow = 37
 const right_arrow = 39
 const down_arrow = 40
+const pause = 27
+
 //CONSTANTS
 
 
 let gridMatrix = getEmptygameCanvas(); 
 let timeUntilMoveDown=60;
 let raf = null;
+let IsGamePaused = false;
 let block = generateBlock();
 
 
@@ -203,7 +206,8 @@ function updateTimeUntilMoveDown(){
 function game(){
     raf = requestAnimationFrame(game);
     // remake game canvas
-    cxt.clearRect(0,0,width,height);
+    if(IsGamePaused === false) {
+        cxt.clearRect(0,0,width,height);
     //draw fixed blocks
     for (let i=0; i<ROWS; i++) {
         for (let j=0; j<COLS; j++) {
@@ -212,7 +216,6 @@ function game(){
                 cxt.fillRect(j*BLOCK_SIZE, i*BLOCK_SIZE, BLOCK_SIZE-0.5, BLOCK_SIZE-0.5)
             }
         }
-    }
     //move block down
     counter++;
     if (counter > timeUntilMoveDown){
@@ -230,6 +233,7 @@ function game(){
             }
         }
     }
+    
 }
 
 function DeletefullRows(){
@@ -295,6 +299,11 @@ function startCountUp(){
     }, 1000);
 }
 
+window.onkeydown = function(pause_play){
+    if (pause_play.keyCode === pause) {
+        IsGamePaused = !IsGamePaused;
+    }
+}
 setInterval(updateTimeUntilMoveDown, 60000)
 startCountUp();
 raf = requestAnimationFrame(game);

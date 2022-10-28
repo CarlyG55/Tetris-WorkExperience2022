@@ -1,5 +1,6 @@
 body {
     background-image:url("Gameplay-background-image.jpg");
+    z-index: -1;
 
 }
 
@@ -108,4 +109,3 @@ p{
     font-weight: 900;
     color: silver;
 }
-
