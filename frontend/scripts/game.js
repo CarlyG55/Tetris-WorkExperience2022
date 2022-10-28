@@ -10,7 +10,7 @@ const down_arrow = 25
 
 
 let gridMatrix = getEmptygameCanvas(); 
-let timeUntilMoveDown=40;
+let timeUntilMoveDown=60;
 let block = generateBlock();
 
 
@@ -76,8 +76,9 @@ function generateBlock(){
     column: 5}}
 
 function updateTimeUntilMoveDown(){
-    if (timeUntilMoveDown > 15);
-    timeUntilMoveDown = timeUntilMoveDown - 5
+    if (timeUntilMoveDown > 15) {
+        timeUntilMoveDown = timeUntilMoveDown - 5
+    }
 }
 // create main game function
 function game(){
