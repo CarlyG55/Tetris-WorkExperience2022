@@ -85,11 +85,15 @@ const up_key = 38
 const left_arrow = 37
 const right_arrow = 39
 const down_arrow = 40
+const pause = 27
+
 //CONSTANTS
 
 
 let gridMatrix = getEmptygameCanvas(); 
+let timeUntilMoveDown=60;
 let raf = null;
+let IsGamePaused = false;
 let block = generateBlock();
 
 let score = 0
@@ -186,48 +190,74 @@ function anti_rotate(arr){
     const newarray = arr[0].map((val, index) => arr.map(row => row[row.length-1-index]));
     return newarray;
     }
-        
-window.onkeydown = function(rotate){
-    if (rotate.keyCode === up_key) {
-        block.array = clockwise_rotate(block.array)
-    }
-    else if (rotate.keyCode === z_key) {
-        block.array = anti_rotate(block.array)
-    }
-    }
 
+function updateTimeUntilMoveDown(){
+    if (timeUntilMoveDown > 15) {
+        timeUntilMoveDown = timeUntilMoveDown - 5
+    }
+}
 // create main game function
 function game(){
     raf = requestAnimationFrame(game);
     // remake game canvas
-    cxt.clearRect(0,0,width,height);
-    //draw fixed blocks
-    for (let i=0; i<ROWS; i++) {
-        for (let j=0; j<COLS; j++) {
-            if (gridMatrix[i][j] !== 0) {
-            cxt.fillStyle = gridMatrix[i][j];
-                cxt.fillRect(j*BLOCK_SIZE, i*BLOCK_SIZE, BLOCK_SIZE-0.5, BLOCK_SIZE-0.5)
+    if(IsGamePaused === false) {
+        cxt.clearRect(0,0,width,height);
+        //draw fixed blocks
+        for (let i=0; i<ROWS; i++) {
+            for (let j = 0; j < COLS; j++) {
+                if (gridMatrix[i][j] !== 0) {
+                    cxt.fillStyle = gridMatrix[i][j];
+                    cxt.fillRect(j * BLOCK_SIZE, i * BLOCK_SIZE, BLOCK_SIZE - 0.5, BLOCK_SIZE - 0.5)
+                }
+            }
+        }
+        //move block down
+        counter++;
+        if (counter > timeUntilMoveDown) {
+            counter = 0;
+            block.row++;
+        }
+
+
+        //fill block in play
+        for (let row = 0; row < block.array.length; row++) {
+            for (let col = 0; col < block.array[row].length; col++) {
+                if (block.array[row][col] !== 0) {
+                    cxt.fillStyle = block.colour;
+                    cxt.fillRect((block.column + col) * BLOCK_SIZE, (block.row + row) * BLOCK_SIZE, BLOCK_SIZE - 0.5, BLOCK_SIZE - 0.5)
+                }
             }
         }
     }
-    //move block down
-    counter++;
-    if (counter > 70){
-        counter=0;
-        block.row++;
-    }
-    //fill block in play
-    for (let row=0; row<block.array.length; row++) {
-        for (let col=0; col<block.array[row].length; col++) {
-            if (block.array[row][col] !== 0){
-                cxt.fillStyle = block.colour;
-                cxt.fillRect((block.column+col)*BLOCK_SIZE, (block.row+row)*BLOCK_SIZE, BLOCK_SIZE-0.5, BLOCK_SIZE-0.5)
+    
+}
+
+function DeletefullRows(){
+   let linecounter = 0;
+    for (let line=ROWS-1; line>=0; line--) {
+        let areThereZeros = false;
+        for (let collumn=0; collumn<COLS; collumn++) {
+            if (gridMatrix[line][collumn] === 0) {
+                areThereZeros = true;
             }
         }
+        if (areThereZeros === false) {
+            linecounter++;
+            for (let newRow=line; newRow>0; newRow--) {
+                for (let newCol=0; newCol<COLS; newCol++) {
+                    gridMatrix[newRow][newCol] = gridMatrix[newRow-1][newCol]
+                }
+            }
+            for (let col=0; col<COLS; col++){
+                gridMatrix[0][col] = 0
+            }    
+        }
     }
+
 }
 
 window.onkeydown = function(move){
+    console.log(move.keyCode);
     if (move.keyCode === left_arrow) {
         block.column--;
     }
@@ -243,7 +273,11 @@ window.onkeydown = function(move){
     if (move.keyCode === z_key) {
         block.array = anti_rotate(block.array)
     }
+    if (pause_play.keyCode === pause) {
+        IsGamePaused = !IsGamePaused;
+    }
 }
+
 raf = requestAnimationFrame(game);
     
 function endgame(){
@@ -265,3 +299,28 @@ function increasescore(numberOfLines){
             score = score + 1200
             break;
 }}
+
+//timer
+
+let isSetTimmeoutRunning = false;
+
+function startCountUp(){
+    isSetTimmeoutRunning = true;
+    var counter = 0;
+    
+    document.getElementById("countup-text").innerHTML = "<p>" + 0 + "</p>";
+
+    var interval = setInterval(function(){
+      counter++;
+      document.getElementById("countup-text").innerHTML = "<p>" + counter + "</p>";
+      if( isSetTimmeoutRunning === false ){
+        document.getElementById("countup-text").innerHTML = "";
+        clearInterval(interval);
+      }
+      
+    }, 1000);
+}
+
+setInterval(updateTimeUntilMoveDown, 60000)
+window.onload = function() {startCountUp()};
+raf = requestAnimationFrame(game);
