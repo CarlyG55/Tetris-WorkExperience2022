@@ -9,7 +9,6 @@
 <head>
     <link href = "static/styles/gameOver.css" rel = "stylesheet" />
     <meta charset="utf-8">
-    
 </head>
 
    
@@ -19,27 +18,46 @@
             <span class="announcement">GAME OVER!</span>
         </h1>
     </div>
-<p>
-    (Score)
-</p>
-<!--add final score here-->
-<p>
-    (High Score)
-</p> 
-<!--add high score here-->
+    <p id="thescore">
+        score
+    </p>
+    <!--add final score here-->
+    <p>
+        (High Score)
+    </p> 
+    <!--add high score here-->
+    <div class="name">
+        <p id="thename"> 
+            Name:
+            <input type="text">
+            <input type="submit" value="Submit">
+        </p>
+    </div> 
+    
+    <!--add global rank here-->
 
-<p>
-    (Rank)
-</p>
-<!--add global rank here-->
-
-<div class="button-container">
-    <button class="button"> RETRY?</button>
-    <button type="button" class="button"> MAIN MENU </button>
-</div>
+    <div class="button-container">
+        
+        <a href="game.html">
+            <button type="button" class="button">RETRY?</button>
+        </a>
+        
+        <a href= "index.html" >
+            <button type="button" class="button">MAIN MENU</button>
+        </a>
+    </div>
 <!--add link to game page and home page when button is clicked-->
 <!--add text 'better luck next time!' and 'well done!' depending on whether they have beaten their high score or not.-->
+    <audio id="musicplayer" autoplay loop>
+    <source src="CREEPY BROKEN TORNADO SIREN IN CHICAGO (128 kbps).mp3"/>
+    <script type="text/javascript">
+        window.onkeydown= function(){
+            document.getElementById("musicplayer").play();
+            }
+    </script>
+    </audio>
 
+<!--doesn't work at the moment because website is not secure; should work when we host it on heroku-->
 </body>
 
 </html>

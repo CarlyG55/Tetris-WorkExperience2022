@@ -8,6 +8,13 @@
 	font-family: 'Press Start 2P', cursive;
 }
 
+h1{
+  position: relative;
+  font-size: 55px;
+  text-align: center;
+  margin-top: 5%;
+}
+
 body{
   background: rgb(40,58,184);
   background: linear-gradient(90deg, rgba(40,58,184,1) 0%, rgba(141,55,158,1) 100%);
@@ -55,7 +62,7 @@ body{
 }
 
 .LeaderTable tr:nth-child(even) {
-  background-color: azure;
+  background-color: #8bc9f0;
 }
 
 .LeaderTable tr:nth-child(1) {
@@ -68,4 +75,15 @@ body{
 
 .LeaderTable tr:nth-child(3){
   background-color: #CD7F32;
+}
+
+
+.back{
+  position: relative;
+  background-color: green;
+  height: 50px;
+  width: 112px;
+  left: 1233px;
+  top: 94px;
+  border-radius: 10px;
 }
