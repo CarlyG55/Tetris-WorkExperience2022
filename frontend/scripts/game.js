@@ -6,6 +6,7 @@ const cxt = canvas.getContext("2d")
 const left_arrow = 37
 const right_arrow = 39
 const down_arrow = 25
+const space_bar = 32
 //CONSTANTS
 
 
@@ -111,6 +112,13 @@ window.onkeydown = function(move){
         block.row-2;
         if (ismovevalid()===false) {
             block.row+2;
+        }
+    }
+
+    else if (move.keyCode === space_bar) {
+        block.row -10;
+        if (ismovevalid() === false) {
+            block.row+10;
         }
     }
     
