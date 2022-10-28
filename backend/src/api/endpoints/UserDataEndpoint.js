@@ -1,4 +1,6 @@
-function getData(url){
+import data from '../../LeaderboardData.json' assert { type: 'json' };
+
+function getData(){
     function sortByProperty(property){  
         return function(a,b){  
            if(a[property] > b[property])  
@@ -9,27 +11,18 @@ function getData(url){
            return 0;  
         }  
      }
+
     
-    fetch(url)
-    
-    .then(data => {
-        let data1 = data.json();
-        return data1;
-    })
-    
-    .then(data => {
-        data.sort(sortByProperty("score"));
-        console.log(data);
-        return data;
-    })
-    
+    data.sort(sortByProperty("score"));
+    console.log(data);
+    return data;
 }
 
 
 
 export const UserDataEndpoint = (request) => {
-    console.log(`Request: ${JSON.stringify(request)}`)
+    //console.log(`Request: ${JSON.stringify(request)}`)
     let data = "";
-    data = getData("backend\src\LeaderboardData.json")
+    data = getData()
     return { data }
 }
