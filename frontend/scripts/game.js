@@ -89,6 +89,7 @@ const down_arrow = 40
 
 
 let gridMatrix = getEmptygameCanvas(); 
+let timeUntilMoveDown=60;
 let raf = null;
 let block = generateBlock();
 
@@ -193,6 +194,11 @@ window.onkeydown = function(rotate){
     }
     }
 
+function updateTimeUntilMoveDown(){
+    if (timeUntilMoveDown > 15) {
+        timeUntilMoveDown = timeUntilMoveDown - 5
+    }
+}
 // create main game function
 function game(){
     raf = requestAnimationFrame(game);
@@ -209,10 +215,12 @@ function game(){
     }
     //move block down
     counter++;
-    if (counter > 100){
+    if (counter > timeUntilMoveDown){
         counter=0;
         block.row++;
     }
+    
+
     //fill block in play
     for (let row=0; row<block.array.length; row++) {
         for (let col=0; col<block.array[row].length; col++) {
@@ -287,5 +295,6 @@ function startCountUp(){
     }, 1000);
 }
 
+setInterval(updateTimeUntilMoveDown, 60000)
 startCountUp();
 raf = requestAnimationFrame(game);
