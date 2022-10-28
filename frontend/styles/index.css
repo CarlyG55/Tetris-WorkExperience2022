@@ -4,6 +4,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 800;
     font-size: 70px;
+    text-shadow: 3px 0 0 white, 0 3px 0 white, -3px 0 0 white, 0 -3px 0 white;
 }
 
 p {
