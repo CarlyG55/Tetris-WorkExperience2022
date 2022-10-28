@@ -84,6 +84,7 @@ const z_key = 90
 const up_key = 38
 const left_arrow = 37
 const right_arrow = 39
+const space_bar = 32
 const down_arrow = 40
 const pause = 27
 
@@ -128,14 +129,18 @@ function setBlock(){
     const blockColour = block.colour;
 
     for (let row=0; row<blockArray.length; row++){
-        for (let column=0; column<row.length; column++){
+        for (let column=0; column<blockArray[row].length; column++){
             const cell = blockArray[row][column];
             if (cell === 1){
+                if (block.row + row < 0) {
+                    return endgame();
+                }
                 gridMatrix[blockRow+row][blockColumn+column] = blockColour;
             }
         }
     }
     block = generateBlock();
+    DeletefullRows();
 }
 
 
@@ -216,6 +221,10 @@ function game(){
         if (counter > timeUntilMoveDown) {
             counter = 0;
             block.row++;
+            if (ismovevalid(block.array, block.row, block.column)===false) {
+                block.row--;
+                setBlock();
+            }
         }
 
 
@@ -253,35 +262,55 @@ function DeletefullRows(){
             }    
         }
     }
-
+    increasescore(linecounter);
 }
 
 window.onkeydown = function(move){
-    console.log(move.keyCode);
     if (move.keyCode === left_arrow) {
-        block.column--;
+        const tempCol = block.column - 1;
+        if (ismovevalid(block.array, block.row, tempCol)) {
+            block.column--;
+        }
     }
     if (move.keyCode === right_arrow) {
-        block.column++;
+        const tempCol = block.column + 1;
+        if (ismovevalid(block.array, block.row, tempCol)) {
+            block.column++;
+        }
     }
     if (move.keyCode === down_arrow) {
-        block.row++;
+        const tempRow = block.row + 1;
+        if (ismovevalid(block.array, tempRow, block.column)) {
+            block.row++;
+        }
+    }
+
+    if (move.keyCode === space_bar) {
+        const tempRow = block.row + 10;
+        if (ismovevalid(block.array, tempRow, block.column)) {
+            block.row = block.row+10;
+        }
     }
     if (move.keyCode === up_key) {
-        block.array = clockwise_rotate(block.array)
+        const tempArray = clockwise_rotate(block.array);
+        if (ismovevalid(tempArray, block.row, block.column)) {
+            block.array = tempArray;
+        }
     }
     if (move.keyCode === z_key) {
-        block.array = anti_rotate(block.array)
+        const tempArray = anti_rotate(block.array)
+        if (ismovevalid(block.array, block.row, block.column)) {
+            block.array = tempArray;
+        }
     }
-    if (pause_play.keyCode === pause) {
+    if (move.keyCode === pause) {
         IsGamePaused = !IsGamePaused;
     }
 }
 
-raf = requestAnimationFrame(game);
-    
 function endgame(){
-    window.open('gameOver?score=' + score);
+    cancelAnimationFrame(raf);
+    window.open('gameOver?score=' + score, "_self");
 }
 
 function increasescore(numberOfLines){
@@ -299,6 +328,22 @@ function increasescore(numberOfLines){
             score = score + 1200
             break;
 }}
+//collisions
+function ismovevalid(matrix, blockRow, blockCol){
+    for(let row = 0; row < matrix.length; row++){
+        for(let col = 0; col < matrix[row].length; col++){
+            if (matrix[row][col] === 1 &&
+                (col + blockCol < 0 ||
+                    col + blockCol > 9 ||
+                    row + blockRow > 19 ||
+                    row + blockRow < 0 ||
+                    gridMatrix[row+block.row][col + block.column] !== 0)){
+                        return false;
+                    }
+        }
+    }
+    return true;
+}
 
 //timer
 
@@ -321,6 +366,6 @@ function startCountUp(){
     }, 1000);
 }
 
-setInterval(updateTimeUntilMoveDown, 60000)
+setInterval(updateTimeUntilMoveDown, 30000)
 window.onload = function() {startCountUp()};
 raf = requestAnimationFrame(game);
