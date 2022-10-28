@@ -224,6 +224,30 @@ function game(){
     }
 }
 
+function DeletefullRows(){
+   let linecounter = 0;
+    for (let line=ROWS-1; line>=0; line--) {
+        let areThereZeros = false;
+        for (let collumn=0; collumn<COLS; collumn++) {
+            if (gridMatrix[line][collumn] === 0) {
+                areThereZeros = true;
+            }
+        }
+        if (areThereZeros === false) {
+            linecounter++;
+            for (let newRow=line; newRow>0; newRow--) {
+                for (let newCol=0; newCol<COLS; newCol++) {
+                    gridMatrix[newRow][newCol] = gridMatrix[newRow-1][newCol]
+                }
+            }
+            for (let col=0; col<COLS; col++){
+                gridMatrix[0][col] = 0
+            }    
+        }
+    }
+
+}
+
 window.onkeydown = function(move){
     if (move.keyCode === left_arrow) {
         block.column--;
