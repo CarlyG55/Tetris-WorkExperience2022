@@ -2,7 +2,8 @@
 
 <html>
 <head>
-<link rel="stylesheet" href="../styles/HowToPage.css">
+<link rel="stylesheet" href="static/styles/HowToPage.css">
+<script src="blocks.js"></script>
 <title>HowToPage</title>
 </head>
 <body>
@@ -24,12 +25,6 @@
 <p>• By Pressing C you can hold the block.</p>
 <p>• By pressing the Esc Key you can pause your game</p>
 
-<h2>MOUSE</h2>
-
-<p>You can move the block right or left with the help of your mouse moving horizontally.</p>
-<p>Right Mouse button will hold the block in place.</p>
-<p>Left Mouse button will cause a hard drop (Immediately reaches the bottom)</p>
-
 <h5>(We recommend using a mouse since it's easier and more fast-paced compared to using a keyboard.)</h5>
 <hr>
 
@@ -48,6 +43,15 @@
 <a class="btn" href="index.html">
 <img src="https://th.bing.com/th/id/OIP.PwWcKWWX84dBdwrKToudyAHaDV?w=223&h=100&c=7&r=0&o=5&dpr=2.5&pid=1.7"
 alt="back to menu" ></a>
+
+<audio id="musicplayer3" autoplay loop>
+    <source src="Elevator Music (128 kbps).mp3"/>
+    <script type="text/javascript">
+        window.onkeydown= function(){
+            document.getElementById("musicplayer3").play();
+            }
+    </script>
+    </audio>
 
 </body>
 </html>

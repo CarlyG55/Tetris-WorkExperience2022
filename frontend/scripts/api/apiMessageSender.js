@@ -24,6 +24,7 @@ class ApiMessageSender {
     }
 
     async send(path, content) {
+        console.log(`${apiUrl}${path}`)
         let res = await fetch(`${apiUrl}${path}`, content)
         return res.json()
     }
