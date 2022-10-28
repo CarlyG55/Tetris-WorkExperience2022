@@ -97,6 +97,9 @@ let raf = null;
 let IsGamePaused = false;
 let block = generateBlock();
 
+let score = 0
+
+
 
 cxt.canvas.width = COLS * BLOCK_SIZE;
 cxt.canvas.height = ROWS * BLOCK_SIZE;
@@ -129,6 +132,9 @@ function setBlock(){
         for (let column=0; column<blockArray[row].length; column++){
             const cell = blockArray[row][column];
             if (cell === 1){
+                if (block.row + row < 0) {
+                    return endgame();
+                }
                 gridMatrix[blockRow+row][blockColumn+column] = blockColour;
             }
         }
@@ -165,7 +171,7 @@ function getEmptynextCanvas(){
         for (let y=0; y<4; y++) {
             nextMatrix[x][y]=0;
             cxt.fillStyle = 0;
-            cxt.fillRect(y*BLOCK_SIZE, x*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+            cxt.fillRect(x*BLOCK_SIZE, y*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
         }
     }
     return nextMatrix
@@ -215,7 +221,7 @@ function game(){
         if (counter > timeUntilMoveDown) {
             counter = 0;
             block.row++;
-            if (ismovevalid()===false) {
+            if (ismovevalid(block.array, block.row, block.column)===false) {
                 block.row--;
                 setBlock();
             }
@@ -256,45 +262,45 @@ function DeletefullRows(){
             }    
         }
     }
-
+    increasescore(linecounter);
 }
 
 window.onkeydown = function(move){
     if (move.keyCode === left_arrow) {
-        block.column--;
-        if (ismovevalid()===false) {
-            block.column++;
-        }
-    }
-    if (move.keyCode === right_arrow) {
-        block.column++;
-        if (ismovevalid()===false) {
+        const tempCol = block.column - 1;
+        if (ismovevalid(block.array, block.row, tempCol)) {
             block.column--;
         }
     }
+    if (move.keyCode === right_arrow) {
+        const tempCol = block.column + 1;
+        if (ismovevalid(block.array, block.row, tempCol)) {
+            block.column++;
+        }
+    }
     if (move.keyCode === down_arrow) {
-        block.row++;
-        if (ismovevalid()===false) {
-            block.row--;
+        const tempRow = block.row + 1;
+        if (ismovevalid(block.array, tempRow, block.column)) {
+            block.row++;
         }
     }
 
     if (move.keyCode === space_bar) {
-        block.row = block.row + 10;
-        if (ismovevalid() === false) {
-            block.row = block.row-10;
+        const tempRow = block.row + 10;
+        if (ismovevalid(block.array, tempRow, block.column)) {
+            block.row = block.row+10;
         }
     }
     if (move.keyCode === up_key) {
-        block.array = clockwise_rotate(block.array)
-        if (ismovevalid() === false) {
-            anti_rotate(block.array);
+        const tempArray = clockwise_rotate(block.array);
+        if (ismovevalid(tempArray, block.row, block.column)) {
+            block.array = tempArray;
         }
     }
     if (move.keyCode === z_key) {
-        block.array = anti_rotate(block.array)
-        if (ismovevalid() === false) {
-            clockwise_rotate(block.array);
+        const tempArray = anti_rotate(block.array)
+        if (ismovevalid(block.array, block.row, block.column)) {
+            block.array = tempArray;
         }
     }
     if (move.keyCode === pause) {
@@ -302,15 +308,35 @@ window.onkeydown = function(move){
     }
 }
 
+function endgame(){
+    cancelAnimationFrame(raf);
+    window.open('gameOver?score=' + score, "_self");
+}
+
+function increasescore(numberOfLines){
+    switch(numberOfLines){
+        case 1: 
+            score = score + 40
+            break;
+        case 2:
+            score = score + 100
+            break;
+        case 3: 
+            score = score + 300
+            break;
+        case 4:
+            score = score + 1200
+            break;
+}}
 //collisions
-function ismovevalid(){
-    for(let row = 0; row < block.array.length; row++){
-        for(let col = 0; col < block.array[row].length; col++){
-            if (block.array[row][col] === 1 &&
-                (col + block.column < 0 ||
-                    col + block.column > 9 ||
-                    row + block.row > 19 ||
-                    row + block.row < 0 ||
+function ismovevalid(matrix, blockRow, blockCol){
+    for(let row = 0; row < matrix.length; row++){
+        for(let col = 0; col < matrix[row].length; col++){
+            if (matrix[row][col] === 1 &&
+                (col + blockCol < 0 ||
+                    col + blockCol > 9 ||
+                    row + blockRow > 19 ||
+                    row + blockRow < 0 ||
                     gridMatrix[row+block.row][col + block.column] !== 0)){
                         return false;
                     }
@@ -318,7 +344,6 @@ function ismovevalid(){
     }
     return true;
 }
-
 
 //timer
 
@@ -341,6 +366,6 @@ function startCountUp(){
     }, 1000);
 }
 
-setInterval(updateTimeUntilMoveDown, 60000)
+setInterval(updateTimeUntilMoveDown, 30000)
 window.onload = function() {startCountUp()};
 raf = requestAnimationFrame(game);
