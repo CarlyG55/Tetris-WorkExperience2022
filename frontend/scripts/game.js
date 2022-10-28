@@ -126,7 +126,7 @@ function setBlock(){
     const blockColour = block.colour;
 
     for (let row=0; row<blockArray.length; row++){
-        for (let column=0; column<row.length; column++){
+        for (let column=0; column<blockArray[row].length; column++){
             const cell = blockArray[row][column];
             if (cell === 1){
                 gridMatrix[blockRow+row][blockColumn+column] = blockColour;
@@ -134,6 +134,7 @@ function setBlock(){
         }
     }
     block = generateBlock();
+    DeletefullRows();
 }
 
 
@@ -198,7 +199,6 @@ function updateTimeUntilMoveDown(){
 function game(){
     raf = requestAnimationFrame(game);
     // remake game canvas
-    console.log('game play')
     if(IsGamePaused === false) {
         cxt.clearRect(0,0,width,height);
         //draw fixed blocks
@@ -217,6 +217,7 @@ function game(){
             block.row++;
             if (ismovevalid()===false) {
                 block.row--;
+                setBlock();
             }
         }
 
@@ -259,7 +260,6 @@ function DeletefullRows(){
 }
 
 window.onkeydown = function(move){
-    console.log(move.keyCode);
     if (move.keyCode === left_arrow) {
         block.column--;
         if (ismovevalid()===false) {
@@ -273,16 +273,16 @@ window.onkeydown = function(move){
         }
     }
     if (move.keyCode === down_arrow) {
-        block.row-2;
+        block.row++;
         if (ismovevalid()===false) {
-            block.row+2;
+            block.row--;
         }
     }
 
     if (move.keyCode === space_bar) {
-        block.row -10;
+        block.row = block.row + 10;
         if (ismovevalid() === false) {
-            block.row+10;
+            block.row = block.row-10;
         }
     }
     if (move.keyCode === up_key) {
@@ -297,23 +297,23 @@ window.onkeydown = function(move){
             clockwise_rotate(block.array);
         }
     }
-    if (pause_play.keyCode === pause) {
+    if (move.keyCode === pause) {
         IsGamePaused = !IsGamePaused;
     }
 }
 
 //collisions
 function ismovevalid(){
-    for(var row = 0; row < block.array.length; row++){
-        for(var col = 0; col < block.array[i].length; col++){
+    for(let row = 0; row < block.array.length; row++){
+        for(let col = 0; col < block.array[row].length; col++){
             if (block.array[row][col] === 1 &&
-                (col + block.col < 0 ||
-                    col + block.col > 9 ||
+                (col + block.column < 0 ||
+                    col + block.column > 9 ||
                     row + block.row > 19 ||
                     row + block.row < 0 ||
-                    gridMatrix[row+block.row][col + block.col] !== 0)){
+                    gridMatrix[row+block.row][col + block.column] !== 0)){
                         return false;
-                    };
+                    }
         }
     }
     return true;
