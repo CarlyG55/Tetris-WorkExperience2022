@@ -18,8 +18,13 @@ p{
 .name p{
   color: rgb(239, 101, 124);
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 20px;
+  font-size: 21.5px;
   font-weight: bold;
+}
+
+h2{
+    color: black;
+    font-size: 50px;
 }
     
   
@@ -39,7 +44,7 @@ p{
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     transition-duration: 0.4s;
     border-radius: 8px;
-    font-size: 30px;
+    font-size: 25px;
     
 
   }
@@ -71,3 +76,5 @@ p{
   from {color: red;} to {color: white;}
 
   }
+
+  

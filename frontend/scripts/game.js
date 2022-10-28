@@ -92,6 +92,9 @@ let gridMatrix = getEmptygameCanvas();
 let raf = null;
 let block = generateBlock();
 
+let score = 0
+
+
 
 cxt.canvas.width = COLS * BLOCK_SIZE;
 cxt.canvas.height = ROWS * BLOCK_SIZE;
@@ -159,7 +162,7 @@ function getEmptynextCanvas(){
         for (let y=0; y<4; y++) {
             nextMatrix[x][y]=0;
             cxt.fillStyle = 0;
-            cxt.fillRect(y*BLOCK_SIZE, x*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+            cxt.fillRect(x*BLOCK_SIZE, y*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
         }
     }
     return nextMatrix
@@ -202,14 +205,14 @@ function game(){
     for (let i=0; i<ROWS; i++) {
         for (let j=0; j<COLS; j++) {
             if (gridMatrix[i][j] !== 0) {
-                cxt.fillStyle = gridMatrix[i][j];
+            cxt.fillStyle = gridMatrix[i][j];
                 cxt.fillRect(j*BLOCK_SIZE, i*BLOCK_SIZE, BLOCK_SIZE-0.5, BLOCK_SIZE-0.5)
             }
         }
     }
     //move block down
     counter++;
-    if (counter > 100){
+    if (counter > 70){
         counter=0;
         block.row++;
     }
@@ -242,3 +245,23 @@ window.onkeydown = function(move){
     }
 }
 raf = requestAnimationFrame(game);
+    
+function endgame(){
+    window.open('gameOver?score=' + score);
+}
+
+function increasescore(numberOfLines){
+    switch(numberOfLines){
+        case 1: 
+            score = score + 40
+            break;
+        case 2:
+            score = score + 100
+            break;
+        case 3: 
+            score = score + 300
+            break;
+        case 4:
+            score = score + 1200
+            break;
+}}
