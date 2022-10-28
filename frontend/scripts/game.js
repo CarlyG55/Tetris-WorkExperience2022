@@ -6,7 +6,8 @@ const cxt = canvas.getContext("2d")
 const left_arrow = 37
 const right_arrow = 39
 const down_arrow = 25
-const pause = document.getElementById("pauseButton")
+const pause = 27
+const play = 9
 //CONSTANTS
 
 
@@ -79,30 +80,33 @@ function generateBlock(){
 // create main game function
 function game(){
     // remake game canvas
-    cxt.clearRect(0,0,width,height);
+    if(IsGamePaused === false) {
+        cxt.clearRect(0,0,width,height);
     //draw fixed blocks
-    for (let i=0; i<ROWS; i++) {
-        for (let j=0; j<COLS; j++) {
-            cxt.fillStyle = gridMatrix[i][j];
-            cxt.fillRect(i*BLOCK_SIZE, j*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+        for (let i=0; i<ROWS; i++) {
+            for (let j=0; j<COLS; j++) {
+                cxt.fillStyle = gridMatrix[i][j];
+                cxt.fillRect(i*BLOCK_SIZE, j*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+            }
         }
-    }
     //move block down
-    counter++;
-    if (counter > 40){
-        counter=0;
-        block.row++;
+        counter++;
+        if (counter > 40){
+            counter=0;
+            block.row++;
     
-    }
-    //fill block in play
-    for (let row=0; row<block.array.length; row++) {
-        for (let col=0; col<row.length; col++) {
-            if (block.array[row][col] !=0){
-                cxt.fillStyle = block.colour;
-                cxt.fillRect((block.row+row)*BLOCK_SIZE, (block.col+col)*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+        }
+        //fill block in play
+        for (let row=0; row<block.array.length; row++) {
+            for (let col=0; col<row.length; col++) {
+                if (block.array[row][col] !=0){
+                    cxt.fillStyle = block.colour;
+                    cxt.fillRect((block.row+row)*BLOCK_SIZE, (block.col+col)*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+                }
             }
         }
     }
+    
 }
 
 window.onkeydown = function(move){
@@ -117,4 +121,16 @@ window.onkeydown = function(move){
         block.row--;
     }
 
+}
+
+window.onkeydown = function(pause_play){
+    let IsGamePaused = false;
+    if (pause_play.keyCode === pause) {
+        IsGamePaused = true;
+
+    }    
+    else if (pause_play.keyCode === play) {
+        IsGamePaused = false;
+ 
+    }     
 }

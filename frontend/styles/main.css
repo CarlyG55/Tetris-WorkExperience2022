@@ -1,5 +1,6 @@
 body {
     background-image:url("Gameplay-background-image.jpg");
+    z-index: -1;
 
 }
 
@@ -51,12 +52,4 @@ body {
     opacity: 0.8;
 }
 
-#pauseButton {
-    position: relative;
-    left: 1138px;
-    height: 80px;
-    width: 120px;
-    top: 500px;
-    border-radius: 10px;
-}
 
