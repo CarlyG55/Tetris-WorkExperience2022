@@ -37,4 +37,18 @@ function doGetDataToTable() {
     })
 }
 
+function addPlayer(name) {
+    let newPlayer = {name : 0};
+    fetch("./LeaderboardData.js")
+    .then(data => {
+        let data1 = data.json();
+        return data1;
+    })
+    
+    .then(data => {
+        data.push(newPlayer);
+        return data;
+    })
+}
+
 doGetDataToTable();
