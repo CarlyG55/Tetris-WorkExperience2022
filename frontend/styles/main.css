@@ -1,5 +1,6 @@
 body {
     background-image:url("Gameplay-background-image.jpg");
+    z-index: -1;
 
 }
 
@@ -22,8 +23,8 @@ body {
 
 
 #gameCanvas{ 
-    box-shadow: 10px 10px 10px rgb(0, 0, 0);
-    border: 2px solid rgb(0, 4, 255);
+    /*box-shadow: 10px 10px 10px rgb(0, 0, 0);*/
+    /*border: 2px solid rgb(0, 4, 255);*/
     width: 400px; 
     height: 800px;
     background-color: black;
@@ -51,5 +52,60 @@ body {
     opacity: 0.8;
 }
 
+.timer{
+    position: relative;
+    box-shadow: 10px 10px 10px rgb(0, 0, 0);
+    border: 2px solid rgb(0, 4, 255);
+    width: 250px; 
+    height: 80px;
+    background-color: black;
+    opacity: 0.8;
+    bottom: 500px;
+    left: 248px;
+}
+
+.start-timer{
+    position: relative;
+    bottom: 444px;
+    left: 507px;
+}
+
+.startbelow {
+    position: relative;
+    bottom: 500px;
+    left: 246px;
+    color: aliceblue;
+}
 
 
+.div1{
+    position: relative;
+    bottom: 1000px;
+}
+
+.click-me{
+    position: relative;
+    background-color: green;
+    left: 313px;
+    bottom: 440px;
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.click-me:hover{
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 5px #555;
+    transition: 1.5s;
+}
+
+p{
+    position: relative;
+    left: 360px;
+    bottom: 711px;
+    font-size: xx-large;
+    font-weight: 900;
+    color: silver;
+}

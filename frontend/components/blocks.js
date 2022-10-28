@@ -1,5 +1,6 @@
 /*javascript 2d array practice, am attempt to create arrays for the tetriminoes*/
 
+
 const blocks = [
     {
         array: [
@@ -76,6 +77,3 @@ const blocks = [
     },
 
 ]
-
-
-

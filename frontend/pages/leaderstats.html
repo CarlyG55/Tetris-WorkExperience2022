@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../styles/leaderstats.css">
-    <script type="application/javascript" src="../scripts/leaderstats.js"></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="static/styles/leaderstats.css">
+    <script src="static/scripts/leaderstats.js" type="module"></script>
+    <title>Leaderboard</title>
+    <h1 class = "title"style = "text-align: center;"> <big>Leaderboard</big> </h1>
 </head>
 <body>
     <table class="LeaderTable" id="ScoreTable">
@@ -17,12 +18,13 @@
             </tr>
         </thead>
         <tbody id="bodyOfTable">
-            <tr>
-                <td>Data-Names</td>
-                <td>Data-Scores</td>
-            </tr>
         </tbody>
-        
+
     </table>
+
+<button class = "back">
+    <a href="index.html" class="button">Back</a>
+</button>
+
 </body>
 </html>
