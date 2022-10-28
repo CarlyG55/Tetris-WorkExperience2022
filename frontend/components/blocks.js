@@ -77,19 +77,5 @@ const blocks = [
 
 ]
 
-function clockwise_rotate(arr){
-const newarray = arr[0].map((val, index) => arr.map(row => row[index]).reverse());
-return newarray;
-}
 
-function anti_rotate(arr){
-const newarray = arr[0].map((val, index) => arr.map(row => row[row.length-1-index]));
-return newarray;
-}
 
-//collisions
-
-function collide(){
-    for(var i = 0; i < blocks.length; i++)
-    document.write("<p><a href='http://www.test.com/" + blocks[i][1] + "/default.aspx'>" + blocks[i][0] + "</a></p>");
-}

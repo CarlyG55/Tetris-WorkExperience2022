@@ -59,6 +59,7 @@ function generateBlock(){
     color: randomBlock.colour,
     row: -1,
     column: 5}}
+    
 
 // create main game function
 function game(){
@@ -76,6 +77,9 @@ function game(){
     if (counter > 40){
         counter=0;
         block.row++;
+        if (ismovevalid()===false) {
+            block.row--;
+        }
     
     }
     //fill block in play
@@ -92,13 +96,51 @@ function game(){
 window.onkeydown = function(move){
     if (move.keyCode === left_arrow) {
         block.column--;
+        if (ismovevalid()===false) {
+            block.column++;
+        }
     }
     else if (move.keyCode === right_arrow) {
         block.column++;
+        if (ismovevalid()===false) {
+            block.column--;
+        }
     }
     
     else if (move.keyCode === down_arrow) {
-        block.row--;
+        block.row-2;
+        if (ismovevalid()===false) {
+            block.row+2;
+        }
+    }
+    
+        
+
+}
+
+function clockwise_rotate(arr){
+    const newarray = arr[0].map((val, index) => arr.map(row => row[index]).reverse());
+    return newarray;
+    }
+    
+    function anti_rotate(arr){
+    const newarray = arr[0].map((val, index) => arr.map(row => row[row.length-1-index]));
+    return newarray;
     }
 
+//collisions
+function ismovevalid(){
+    for(var row = 0; row < block.array.length; row++){
+        for(var col = 0; col < block.array[i].length; col++){
+            if (block.array[row][col] === 1 &&
+                (col + block.col < 0 ||
+                    col + block.col > 9 ||
+                    row + block.row > 19 ||
+                    row + block.row < 0 ||
+                    gridMatrix[row+block.row][col + block.col] !== 0)){
+                        return false;
+                    };
+        }
+    }
+    return true;
 }
