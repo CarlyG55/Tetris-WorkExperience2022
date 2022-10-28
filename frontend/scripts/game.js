@@ -76,6 +76,7 @@ function generateBlock(){
     column: 5}}
 
 function updateTimeUntilMoveDown(){
+    if (timeUntilMoveDown > 15);
     timeUntilMoveDown = timeUntilMoveDown - 5
 }
 // create main game function
@@ -95,12 +96,6 @@ function game(){
         counter=0;
         block.row++;
     }
-
-    //decrease counter to 15
-    while (timeUntilMoveDown>15){
-        setInterval(updateTimeUntilMoveDown, 60000)
-    }
-    
     
 
     //fill block in play
@@ -127,3 +122,5 @@ window.onkeydown = function(move){
     }
 
 }
+
+setInterval(updateTimeUntilMoveDown, 60000)
