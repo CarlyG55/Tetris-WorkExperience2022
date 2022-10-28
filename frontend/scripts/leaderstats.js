@@ -1,3 +1,5 @@
+import { apiMessageSender } from "./api/apiMessageSender.js";
+
 function doGetDataToTable() {
     function sortByProperty(property){  
         return function(a,b){  
@@ -10,21 +12,18 @@ function doGetDataToTable() {
         }  
      }
     
-    fetch("./LeaderboardData.js")
+    apiMessageSender.get('/leaderboard')
     
     .then(data => {
-        let data1 = data.json();
-        return data1;
+        console.log(data);
+        data.data.sort(sortByProperty("score"));
+        return data.data;
     })
-    
-    .then(data => {
-        data.sort(sortByProperty("score"));
-        return data;
-    })
+
     
     .then(sortedData => {
         let TableData = "";
-        
+        console.log(sortedData);
         sortedData.map(values => {
             TableData += 
             `<tr>
