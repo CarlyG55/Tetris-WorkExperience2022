@@ -21,7 +21,17 @@
         </div>
         <canvas id="nextCanvas"></canvas>
     </div>
-
+    
+    <audio id="musicplayer2" autoplay loop>
+        <source src="Pac-man theme remix - By Arsenic1987 (128 kbps).mp3"/>
+        <script type="text/javascript">
+            window.onkeydown= function(){
+                document.getElementById("musicplayer2").play();
+                }
+        </script>
+        </audio>
+    
+    <!--doesn't work at the moment because website is not secure; should work when we host it on heroku-->
     <script src="static/scripts/game.js"></script>
 </body>
 

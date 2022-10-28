@@ -114,6 +114,24 @@ function getEmptygameCanvas(){
     return matrix;
 }
 
+function setBlock(){
+    const blockRow = block.row;
+    const blockColumn = block.column;
+    const blockArray = block.array;
+    const blockColour = block.colour;
+
+    for (let row=0; row<blockArray.length; row++){
+        for (let column=0; column<row.length; column++){
+            const cell = blockArray[row][column];
+            if (cell === 1){
+                gridMatrix[blockRow+row][blockColumn+column] = blockColour;
+            }
+        }
+    }
+    block = generateBlock();
+}
+
+
 //GENERATES GAME CANVAS GRID
 let counter = 0;
 let holdGridMatrix = getEmptyholdCanvas();
@@ -130,6 +148,7 @@ function getEmptyholdCanvas(){
     }
     return holdMatrix
 }
+
 
 let nextGridMatrix = getEmptynextCanvas();
 
