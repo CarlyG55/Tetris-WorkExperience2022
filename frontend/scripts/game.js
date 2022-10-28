@@ -241,4 +241,27 @@ window.onkeydown = function(move){
         block.array = anti_rotate(block.array)
     }
 }
+
+//timer
+
+let isSetTimmeoutRunning = false;
+
+function startCountUp(){
+    isSetTimmeoutRunning = true;
+    var counter = 0;
+    
+    document.getElementById("countup-text").innerHTML = "<p>" + 0 + "</p>";
+
+    var interval = setInterval(function(){
+      counter++;
+      document.getElementById("countup-text").innerHTML = "<p>" + counter + "</p>";
+      if( isSetTimmeoutRunning === false ){
+        document.getElementById("countup-text").innerHTML = "";
+        clearInterval(interval);
+      }
+      
+    }, 1000);
+}
+
+startCountUp();
 raf = requestAnimationFrame(game);
