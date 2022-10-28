@@ -7,12 +7,11 @@ const left_arrow = 37
 const right_arrow = 39
 const down_arrow = 25
 const pause = 27
-const play = 9
 //CONSTANTS
 
 
-let gridMatrix = getEmptygameCanvas(); 
-
+let gridMatrix = getEmptygameCanvas();
+let IsGamePaused = false;
 let block = generateBlock();
 
 
@@ -124,13 +123,7 @@ window.onkeydown = function(move){
 }
 
 window.onkeydown = function(pause_play){
-    let IsGamePaused = false;
     if (pause_play.keyCode === pause) {
-        IsGamePaused = true;
-
-    }    
-    else if (pause_play.keyCode === play) {
-        IsGamePaused = false;
- 
-    }     
+        IsGamePaused = !IsGamePaused;
+    }
 }
