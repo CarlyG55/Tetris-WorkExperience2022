@@ -187,15 +187,6 @@ function anti_rotate(arr){
     const newarray = arr[0].map((val, index) => arr.map(row => row[row.length-1-index]));
     return newarray;
     }
-        
-window.onkeydown = function(rotate){
-    if (rotate.keyCode === up_key) {
-        block.array = clockwise_rotate(block.array)
-    }
-    else if (rotate.keyCode === z_key) {
-        block.array = anti_rotate(block.array)
-    }
-    }
 
 function updateTimeUntilMoveDown(){
     if (timeUntilMoveDown > 15) {
@@ -206,30 +197,33 @@ function updateTimeUntilMoveDown(){
 function game(){
     raf = requestAnimationFrame(game);
     // remake game canvas
+    console.log('game play')
     if(IsGamePaused === false) {
         cxt.clearRect(0,0,width,height);
-    //draw fixed blocks
-    for (let i=0; i<ROWS; i++) {
-        for (let j=0; j<COLS; j++) {
-            if (gridMatrix[i][j] !== 0) {
-                cxt.fillStyle = gridMatrix[i][j];
-                cxt.fillRect(j*BLOCK_SIZE, i*BLOCK_SIZE, BLOCK_SIZE-0.5, BLOCK_SIZE-0.5)
+        //draw fixed blocks
+        for (let i=0; i<ROWS; i++) {
+            for (let j = 0; j < COLS; j++) {
+                if (gridMatrix[i][j] !== 0) {
+                    cxt.fillStyle = gridMatrix[i][j];
+                    cxt.fillRect(j * BLOCK_SIZE, i * BLOCK_SIZE, BLOCK_SIZE - 0.5, BLOCK_SIZE - 0.5)
+                }
             }
         }
-    //move block down
-    counter++;
-    if (counter > timeUntilMoveDown){
-        counter=0;
-        block.row++;
-    }
-    
+        //move block down
+        counter++;
+        if (counter > timeUntilMoveDown) {
+            counter = 0;
+            block.row++;
+        }
 
-    //fill block in play
-    for (let row=0; row<block.array.length; row++) {
-        for (let col=0; col<block.array[row].length; col++) {
-            if (block.array[row][col] !== 0){
-                cxt.fillStyle = block.colour;
-                cxt.fillRect((block.column+col)*BLOCK_SIZE, (block.row+row)*BLOCK_SIZE, BLOCK_SIZE-0.5, BLOCK_SIZE-0.5)
+
+        //fill block in play
+        for (let row = 0; row < block.array.length; row++) {
+            for (let col = 0; col < block.array[row].length; col++) {
+                if (block.array[row][col] !== 0) {
+                    cxt.fillStyle = block.colour;
+                    cxt.fillRect((block.column + col) * BLOCK_SIZE, (block.row + row) * BLOCK_SIZE, BLOCK_SIZE - 0.5, BLOCK_SIZE - 0.5)
+                }
             }
         }
     }
@@ -261,6 +255,7 @@ function DeletefullRows(){
 }
 
 window.onkeydown = function(move){
+    console.log(move.keyCode);
     if (move.keyCode === left_arrow) {
         block.column--;
     }
@@ -275,6 +270,9 @@ window.onkeydown = function(move){
     }
     if (move.keyCode === z_key) {
         block.array = anti_rotate(block.array)
+    }
+    if (pause_play.keyCode === pause) {
+        IsGamePaused = !IsGamePaused;
     }
 }
 
@@ -299,11 +297,6 @@ function startCountUp(){
     }, 1000);
 }
 
-window.onkeydown = function(pause_play){
-    if (pause_play.keyCode === pause) {
-        IsGamePaused = !IsGamePaused;
-    }
-}
 setInterval(updateTimeUntilMoveDown, 60000)
-startCountUp();
+window.onload = function() {startCountUp()};
 raf = requestAnimationFrame(game);
