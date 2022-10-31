@@ -176,4 +176,22 @@ Once you are happy with your code, you can open GitHub in a browser and do the f
 
 ## Running Tetris After the Work Experience Week
 
-To be updated after the work experience week.
+### To Keep Working On Tetris Locally:
+
+1. Fork the repository (click the "fork" button in the top left of the repository main page on Github)
+2. Find the URL of your forked repository (on your repo's main page, click the green "Code" button and copy the URL)
+3. In your local repository, run: `git clone <url-of-your-cloned-repo>`
+4. You should now have your own version of the code you can work on and push to.
+
+### To Deploy Your Own Version Of Tetris:
+Note - this is for Heroku, however Heroku are removing the free version of their hosting later in November. You might want to look into other ways of deploying the code for after that (or just run it locally!)
+
+1. Follow all the steps of the previous section to get your own version of Tetris in Github and locally.
+2. Set up a free Heroku account (link [here](https://signup.heroku.com/)).
+3. Create a new app.
+4. Install the Heroku command-line interface (info [here](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)).
+5. Login on the command line using `heroku login`
+6. Run `heroku authorizations:create` to generate an API key. Make note of the token.
+7. In your Github repository, go to `Settings -> Secrets` and add a new secrect called `HEROKU_API_KEY` and give it the value of your token.
+8. In the file `.github/workflows/deploy.yml`, find the "Deploy to Heroku" step and change the text `tetris-softwire` in `tetris-softwire.git` to the name of your own app.
+9. When you push to the `main` branch on Github, the website should now automatically deploy to your own Heroku app URL.
